@@ -8,12 +8,14 @@ using Microsoft.Extensions.Logging;
 using YolleybalCompetitie.Models;
 using Data;
 using System.Data;
+using Core;
 
 namespace YolleybalCompetitie.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private ICompetitiecollectieDal IcompetitiecollectieDal = new CompetitieDal();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -21,7 +23,10 @@ namespace YolleybalCompetitie.Controllers
         }
 
         public IActionResult Index()
-        {
+        {  
+            Competitiecolection Competitiecolection = new Competitiecolection(IcompetitiecollectieDal);
+            DataTable test3 = Competitiecolection.Test();
+            int test = test3.Rows.Count;
             return View();
         }
 

@@ -2,14 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 using Core.Enum;
+using System.Data;
+using Data;
 
 namespace Core
 {
-    class Competitiecolection
+    public class Competitiecolection
     {
-      public void Test()
+        ICompetitiecollectieDal competitiecollectieDal;
+        public DataTable Test()
         {
-            //     return ICompetitiecollectieDal.data
+            
+            return competitiecollectieDal.GetCompetities();
+        }
+        public Competitiecolection(ICompetitiecollectieDal IcompetitiecollectieDal)
+        {
+            competitiecollectieDal = IcompetitiecollectieDal;
         }
     }
+
 }

@@ -8,10 +8,14 @@ using Core;
 
 namespace Data
 {
-    public class CompetitieDal : ICompetitiecollectieDal
+   public class CompetitieDal : ICompetitiecollectieDal
     {
         static readonly SqlConnection _conn = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=VolleydatabaseS2;User Id=;Password=;");
 
+        public CompetitieDal()
+        {
+
+        }
         private static DataTable Select(string query)
         {
             DataTable result = new DataTable();
@@ -65,5 +69,6 @@ namespace Data
         {
             return Select("SELECT * FROM Competitie;");
         }
+
     }
 }

@@ -6,6 +6,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Data">
+      <HintPath>..\Data\bin\Debug\netstandard2.0\Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
