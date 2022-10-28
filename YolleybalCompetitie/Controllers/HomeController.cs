@@ -15,7 +15,8 @@ namespace YolleybalCompetitie.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private ICompetitiecollectieDal IcompetitiecollectieDal = new CompetitieDal();
+        private readonly ICompetitiecollectieDal IcompetitiecollectieDal = new CompetitieDal();
+        private readonly ITeamDal IteamDal = new TeamDal();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -27,6 +28,12 @@ namespace YolleybalCompetitie.Controllers
             Competitiecolection Competitiecolection = new Competitiecolection(IcompetitiecollectieDal);
             DataTable test3 = Competitiecolection.Test();
             int test = test3.Rows.Count;
+            if (test == 2)
+            {
+                TeamCollection teamCollection = new TeamCollection(IteamDal);
+                DataTable test31 = teamCollection.Test();
+                int test1 = test31.Rows.Count;
+            }
             return View();
         }
 
