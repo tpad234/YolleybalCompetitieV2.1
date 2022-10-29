@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Core
 {
-    public interface ITeamDal
+    public interface ITeamCollectionDal
     {
         DataTable GetTeams();
     }

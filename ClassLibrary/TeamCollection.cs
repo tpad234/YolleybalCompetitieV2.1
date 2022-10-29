@@ -9,14 +9,13 @@ namespace Core
 {
    public class TeamCollection
     {
-
-        ITeamDal teamDal;
-        public DataTable Test()
+        readonly ITeamCollectionDal teamDal;
+        public DataTable GetTeams()
         {
 
             return teamDal.GetTeams();
         }
-        public TeamCollection(ITeamDal iteamdal)
+        public TeamCollection(ITeamCollectionDal iteamdal)
         {
             teamDal = iteamdal;
         }

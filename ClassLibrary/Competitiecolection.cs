@@ -9,7 +9,7 @@ namespace Core
 {
     public class Competitiecolection
     {
-        ICompetitiecollectieDal competitiecollectieDal;
+        readonly ICompetitiecollectieDal competitiecollectieDal;
         public DataTable Test()
         {
             

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Data
 {
-   public class TeamDal : ITeamDal
+   public class TeamDal : ITeamCollectionDal
     {
         public DataTable GetTeams()
         {

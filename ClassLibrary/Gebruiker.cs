@@ -5,7 +5,7 @@ namespace Core
 {
    public class Gebruiker
     {
-        IGebruikerDal IgebruikerDal;
+        readonly IGebruikerDal IgebruikerDal;
         string Naam { get; }
         string Email { get; }
         string Wachtwoord { get; }
@@ -26,7 +26,7 @@ namespace Core
         {
             IgebruikerDal = gebruikerDal;
         }
-        public DataTable getuser(string username)
+        public DataTable Getuser(string username)
         {
 
             return IgebruikerDal.GetGebruikerByName(username);
