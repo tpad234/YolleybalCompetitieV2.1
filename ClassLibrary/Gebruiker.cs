@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Data;
 using Core.Enum;
 namespace Core
 {
-    public class Gebruiker
+   public class Gebruiker
     {
+        IGebruikerDal IgebruikerDal;
         string Naam { get; }
         string Email { get; }
         string Wachtwoord { get; }
@@ -19,6 +21,15 @@ namespace Core
             this.Rol = Rol;
 
 
+        }
+        public Gebruiker(IGebruikerDal gebruikerDal)
+        {
+            IgebruikerDal = gebruikerDal;
+        }
+        public DataTable getuser(string username)
+        {
+
+            return IgebruikerDal.GetGebruikerByName(username);
         }
     }
 }

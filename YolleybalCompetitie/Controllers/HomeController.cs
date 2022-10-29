@@ -25,15 +25,11 @@ namespace YolleybalCompetitie.Controllers
 
         public IActionResult Index()
         {  
-            Competitiecolection Competitiecolection = new Competitiecolection(IcompetitiecollectieDal);
-            DataTable test3 = Competitiecolection.Test();
-            int test = test3.Rows.Count;
-            if (test == 2)
-            {
+                      
                 TeamCollection teamCollection = new TeamCollection(IteamDal);
                 DataTable test31 = teamCollection.Test();
                 int test1 = test31.Rows.Count;
-            }
+            
             return View();
         }
 

@@ -6,12 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary\Core.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
-    <ProjectReference Include="..\UnitTestBisnuss\UnitTestBisnuss.csproj" />
   </ItemGroup>
 
 </Project>

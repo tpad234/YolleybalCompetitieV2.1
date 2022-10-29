@@ -11,7 +11,7 @@ namespace Data
     {
         static readonly SqlConnection _conn = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=VolleydatabaseS2;User Id=;Password=;");
 
-        public static DataTable Select(string query)
+        public static DataTable Select(string query, List<SqlParameter> parameters = null)
         {
             DataTable result = new DataTable();
 
@@ -38,6 +38,35 @@ namespace Data
 
             }
             return result;
+        }
+        private static int UpdateDeleteInsert(string query, List<SqlParameter> parameters = null)
+        {
+            int rowsAffected = 0;
+            OpenSqlConnection();
+
+            if (_conn.State == ConnectionState.Open)
+            {
+                SqlCommand mySqlCommand = new SqlCommand(query, _conn);
+
+                if (parameters != null)
+                {
+                    mySqlCommand.Parameters.AddRange(parameters.ToArray());
+                }
+                try
+                {
+                    rowsAffected = mySqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("Error connecti ng to the database. Contact it support.", "Database error 1234");
+                }
+                finally
+                {
+                    CloseSqlConnection();
+                }
+            }
+            return rowsAffected;
         }
         public static void OpenSqlConnection()
         {
