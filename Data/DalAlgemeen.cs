@@ -11,7 +11,7 @@ namespace Data
     {
         static readonly SqlConnection _conn = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=VolleydatabaseS2;User Id=;Password=;");
 
-        public static DataTable Select(string query, List<SqlParameter> parameters = null)
+        public static DataTable Select(String query, List<SqlParameter> parameters = null)
         {
             DataTable result = new DataTable();
 

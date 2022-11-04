@@ -9,7 +9,7 @@ namespace Core
 {
    public class TeamCollection
     {
-        readonly ITeamCollectionDal teamDal;
+       private readonly ITeamCollectionDal teamDal;
         public DataTable GetTeams()
         {
 
