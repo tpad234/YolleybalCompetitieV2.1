@@ -39,7 +39,7 @@ namespace Core
         }
         public Team GetTeamByID(int ID)
         {
-            return teamDal.GetTeamnByID(ID);
+            return teamDal.GetTeamByID(ID);
         }
     }
 }
