@@ -31,9 +31,15 @@ namespace Core
             Spelers = spelers;
 
         }
-        public string GetTeamByID(int ID)
+        public Team(string naam)
         {
-            return teamDal.GetTeamnameByID(ID);
+
+            Naam = naam;
+
+        }
+        public Team GetTeamByID(int ID)
+        {
+            return teamDal.GetTeamnByID(ID);
         }
     }
 }

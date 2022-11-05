@@ -14,6 +14,6 @@ namespace YolleybalCompetitie.Models
 
         public Core.Enum.Winaar Winaar { get; set; }
 
-        public string score { get; set; }
+        public string Score { get; set; }
     }
 }

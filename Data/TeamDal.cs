@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Data
 {
-   public class TeamDal : ITeamCollectionDal
+    public class TeamDal : ITeamCollectionDal
     {
         public List<DataRow> GetTeams()
         {
@@ -20,20 +20,23 @@ namespace Data
             }
             return list;
         }
-        public string GetTeamnameByID(int ID)
+        public Team GetTeamByID(int ID)
         {
-            string naam = "";
+            Team team = null;
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@ID", ID)
             };
             DataTable dt = DalAlgemeen.Select("SELECT Naam FROM Team WHERE ID =@ID", parameters);
+
+
             foreach (DataRow dr in dt.Rows)
             {
-                naam = dr.ItemArray[1].ToString();
-            }
-            return naam;
-        }
+                team = new Team(dr.ItemArray[1].ToString());
 
+            }
+            return team;
+        }
     }
 }
+
