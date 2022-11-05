@@ -8,6 +8,6 @@ namespace Core
     public interface ITeamCollectionDal
     {
         List<DataRow> GetTeams();
-        Team GetTeamnByID(int ID);
+        Team GetTeamByID(int ID);
     }
 }
