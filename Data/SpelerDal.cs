@@ -8,9 +8,16 @@ namespace Data
 {
     public class SpelerDal : ISpelerColectionDal
     {
-        public DataTable GetSpelers()
+        public List<DataRow> GetSpelers()
         {
-            return DalAlgemeen.Select("SELECT * FROM Speler;");
+            DataTable dt = DalAlgemeen.Select("SELECT * FROM Speler;");
+            List<DataRow> list = new List<DataRow>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(dr);
+            }
+            return list;
+
         }
     }
 }

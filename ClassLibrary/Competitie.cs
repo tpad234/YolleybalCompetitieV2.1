@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Core
 {
-    class Competitie
+     public class Competitie
     {
        public string Naam { get; }
 

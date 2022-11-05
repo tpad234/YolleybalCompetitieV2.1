@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Core;
 using Data;
 using Microsoft.AspNetCore.Mvc;
+using YolleybalCompetitie.Models;
 
 namespace YolleybalCompetitie.Controllers
 {
@@ -15,9 +16,13 @@ namespace YolleybalCompetitie.Controllers
         public IActionResult Index()
         {
             Competitiecolection Competitiecolection = new Competitiecolection(IcompetitiecollectieDal);
-            DataTable test3 = Competitiecolection.Test();
-           
-            return View(test3);
+            List<DataRow> test3 = Competitiecolection.Test();
+         
+            CompetitieViewModel competitieViewModel = new CompetitieViewModel()
+            {
+                competities = test3,
+            };
+            return View(competitieViewModel);
         }
 
 

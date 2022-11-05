@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Core
 {
-    class Speler
+   public  class Speler
     {
         string Voornaam { get; }
         string Achternaam { get; }

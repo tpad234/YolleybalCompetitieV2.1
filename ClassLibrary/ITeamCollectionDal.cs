@@ -7,6 +7,6 @@ namespace Core
 {
     public interface ITeamCollectionDal
     {
-        DataTable GetTeams();
+        List<DataRow> GetTeams();
     }
 }

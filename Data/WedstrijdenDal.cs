@@ -8,9 +8,15 @@ namespace Data
 {
     class WedstrijdenDal : IWedstrijdColectionDal
     {
-        public DataTable GetWedstrijden()
+        public List<DataRow> GetWedstrijden()
         {
-            return DalAlgemeen.Select("SELECT * FROM Wedstrijd;");
+            DataTable dt = DalAlgemeen.Select("SELECT * FROM Wedstrijd;");
+            List<DataRow> list = new List<DataRow>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(dr);
+            }
+            return list;
         }
     }
 }

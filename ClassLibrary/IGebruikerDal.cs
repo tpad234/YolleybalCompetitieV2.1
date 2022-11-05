@@ -7,6 +7,6 @@ namespace Core
 {
     public interface IGebruikerDal
     {
-        DataTable GetGebruikerByName(string username);
+        List<DataRow> GetGebruikerByName(string username);
     }
 }

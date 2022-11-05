@@ -7,6 +7,6 @@ namespace Core
 {
    public  interface ISpelerColectionDal
     {
-        DataTable GetSpelers();
+        List<DataRow> GetSpelers();
     }
 }

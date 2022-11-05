@@ -10,7 +10,7 @@ namespace Core
    public class TeamCollection
     {
        private readonly ITeamCollectionDal teamDal;
-        public DataTable GetTeams()
+        public List<DataRow> GetTeams()
         {
 
             return teamDal.GetTeams();

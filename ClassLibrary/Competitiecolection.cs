@@ -10,7 +10,7 @@ namespace Core
     public class Competitiecolection
     {
         readonly ICompetitiecollectieDal competitiecollectieDal;
-        public DataTable Test()
+        public List<DataRow> Test()
         {
             
             return competitiecollectieDal.GetCompetities();

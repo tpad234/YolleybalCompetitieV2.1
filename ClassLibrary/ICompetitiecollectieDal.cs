@@ -8,7 +8,7 @@ namespace Core
 {
     public interface ICompetitiecollectieDal
     {
-        DataTable GetCompetities();
+        List<DataRow> GetCompetities();
 
     }
  

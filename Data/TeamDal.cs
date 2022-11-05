@@ -8,9 +8,16 @@ namespace Data
 {
    public class TeamDal : ITeamCollectionDal
     {
-        public DataTable GetTeams()
+        public List<DataRow> GetTeams()
         {
-            return DalAlgemeen.Select("SELECT * FROM Team;");
+            DataTable dt = DalAlgemeen.Select("SELECT * FROM Team;");
+
+            List<DataRow> list = new List<DataRow>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(dr);
+            }
+            return list;
         }
 
     }

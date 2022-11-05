@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using Core.Enum;
 namespace Core
@@ -26,7 +27,7 @@ namespace Core
         {
             IgebruikerDal = gebruikerDal;
         }
-        public DataTable Getuser(string username)
+        public List<DataRow> Getuser(string username)
         {
 
             return IgebruikerDal.GetGebruikerByName(username);

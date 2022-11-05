@@ -26,8 +26,7 @@ namespace YolleybalCompetitie.Controllers
         {  
                       
                 TeamCollection teamCollection = new TeamCollection(IteamDal);
-                DataTable test31 = teamCollection.GetTeams();
-                int test1 = test31.Rows.Count;
+                List<DataRow> test31 = teamCollection.GetTeams();
             
             return View();
         }

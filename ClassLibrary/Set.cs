@@ -4,7 +4,7 @@ using System.Text;
 using Core.Enum;
 namespace Core
 {
-    class Set
+   public class Set
     {
         private int ID { get; }
         private Wedstrijd WedstrijdID { get; }

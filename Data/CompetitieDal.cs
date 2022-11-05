@@ -8,12 +8,18 @@ using Core;
 
 namespace Data
 {
-   public class CompetitieDal : ICompetitiecollectieDal
+    public class CompetitieDal : ICompetitiecollectieDal
     {
 
-        public DataTable GetCompetities()
+        public List<DataRow> GetCompetities()
         {
-            return DalAlgemeen.Select("SELECT * FROM Competitie;");
+            DataTable dt = DalAlgemeen.Select("SELECT * FROM Competitie;");
+            List<DataRow> list = new List<DataRow>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(dr);
+            }
+            return list;
         }
 
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Core
 {
-    class Wedstrijd
+    public class Wedstrijd
     {
         Team Teamthuis { get; }
         Team Teamuit { get; }

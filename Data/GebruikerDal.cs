@@ -9,14 +9,22 @@ namespace Data
 {
     class GebruikerDal : IGebruikerDal
     {
-        public DataTable GetGebruikerByName(string username)
+        public List<DataRow> GetGebruikerByName(string username)
         {
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@username", username)
             };
-            return DalAlgemeen.Select("SELECT * FROM Team WHERE Naam =@username", parameters);
+            DataTable dt = DalAlgemeen.Select("SELECT * FROM Team WHERE Naam =@username", parameters);
+
+            List<DataRow> list = new List<DataRow>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(dr);
+            }
+            return list;
         }
+
 
     }
 }
