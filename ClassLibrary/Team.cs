@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace Core
 {
     public class Team
     {
+        private readonly ITeamCollectionDal teamDal;
         string Naam { get; }
 
         private List<Speler> _spelers = new List<Speler>();
@@ -16,13 +18,22 @@ namespace Core
             set { _spelers = value; }
         }
 
-        public Team(string Naam, List<Speler> spelers)
+        public Team(ITeamCollectionDal iteamdal)
         {
 
-            this.Naam = Naam;
-            this.Spelers = spelers;
+            teamDal = iteamdal;
 
+        }
+        public Team(string naam, List<Speler> spelers)
+        {
 
+            Naam = naam;
+            Spelers = spelers;
+
+        }
+        public string GetTeamByID(int ID)
+        {
+            return teamDal.GetTeamnameByID(ID);
         }
     }
 }

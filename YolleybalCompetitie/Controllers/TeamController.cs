@@ -25,5 +25,6 @@ namespace YolleybalCompetitie.Controllers
             };
             return View(teamViewControler);
         }
+
     }
 }

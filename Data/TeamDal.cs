@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace Data
@@ -18,6 +19,20 @@ namespace Data
                 list.Add(dr);
             }
             return list;
+        }
+        public string GetTeamnameByID(int ID)
+        {
+            string naam = "";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@ID", ID)
+            };
+            DataTable dt = DalAlgemeen.Select("SELECT Naam FROM Team WHERE ID =@ID", parameters);
+            foreach (DataRow dr in dt.Rows)
+            {
+                naam = dr.ItemArray[1].ToString();
+            }
+            return naam;
         }
 
     }

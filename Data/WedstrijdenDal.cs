@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Data
 {
-   public class WedstrijdenDal : IWedstrijdColectionDal
+    public class WedstrijdenDal : IWedstrijdColectionDal
     {
         public List<DataRow> GetWedstrijden()
         {
@@ -18,5 +18,6 @@ namespace Data
             }
             return list;
         }
+
     }
 }

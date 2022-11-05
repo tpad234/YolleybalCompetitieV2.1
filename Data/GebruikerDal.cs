@@ -15,7 +15,7 @@ namespace Data
             {
                 new SqlParameter("@username", username)
             };
-            DataTable dt = DalAlgemeen.Select("SELECT * FROM Team WHERE Naam =@username", parameters);
+            DataTable dt = DalAlgemeen.Select("SELECT * FROM Gebruiker WHERE Naam =@username", parameters);
 
             List<DataRow> list = new List<DataRow>();
             foreach (DataRow dr in dt.Rows)
