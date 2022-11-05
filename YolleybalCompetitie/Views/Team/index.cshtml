@@ -1,0 +1,25 @@
+﻿@model TeamViewModel
+
+@{
+    ViewData["Title"] = "index";
+}
+
+<h1>Teams</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>naam</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Teams) {
+        <tr>
+            <td>
+                @item[1].ToString()
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

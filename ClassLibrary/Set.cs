@@ -14,7 +14,7 @@ namespace Core
         private Winaar Winaar { get;  }
 
 
-        public Set(int ID, Wedstrijd WedstrijID, int aantalset, int Scoreteamthuis, int Scoreteamuit, Winaar Winaar)
+        public Set(Wedstrijd WedstrijID, int aantalset, int Scoreteamthuis, int Scoreteamuit, Winaar Winaar)
         {
 
             this.WedstrijdID = WedstrijID;

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using Core;
 
 namespace YolleybalCompetitie.Models
 {
-    public class CompetitieViewModel
+    public class WedstrijdViewModel
     {
-            public List<DataRow> Competities { get; set; }
+        public List<DataRow> Wedstrijden { get; set; }
     }
 }

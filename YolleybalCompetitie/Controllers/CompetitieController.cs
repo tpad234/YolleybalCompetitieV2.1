@@ -20,7 +20,7 @@ namespace YolleybalCompetitie.Controllers
          
             CompetitieViewModel competitieViewModel = new CompetitieViewModel()
             {
-                competities = test3,
+                Competities = test3,
             };
             return View(competitieViewModel);
         }

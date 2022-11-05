@@ -12,7 +12,6 @@ namespace Core
        private readonly ITeamCollectionDal teamDal;
         public List<DataRow> GetTeams()
         {
-
             return teamDal.GetTeams();
         }
         public TeamCollection(ITeamCollectionDal iteamdal)

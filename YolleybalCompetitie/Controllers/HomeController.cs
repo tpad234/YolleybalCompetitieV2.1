@@ -24,10 +24,7 @@ namespace YolleybalCompetitie.Controllers
 
         public IActionResult Index()
         {  
-                      
-                TeamCollection teamCollection = new TeamCollection(IteamDal);
-                List<DataRow> test31 = teamCollection.GetTeams();
-            
+                               
             return View();
         }
 

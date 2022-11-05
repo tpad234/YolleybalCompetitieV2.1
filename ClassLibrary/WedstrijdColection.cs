@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Core
 {
-    class WedstrijdColection
+    public class WedstrijdColection
     {
         readonly IWedstrijdColectionDal IwedstrijdColectionDal;
         public List<DataRow> GetWedstrijden()

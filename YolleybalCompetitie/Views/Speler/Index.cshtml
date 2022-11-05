@@ -1,0 +1,45 @@
+﻿@model SpelerViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<body>
+
+    <h1>competitties</h1>
+
+    <table class="table">
+        <tr>
+            <th>
+                voornaam
+            </th>
+            <th>
+                achternaam
+            </th>
+            <th>
+                leeftijd
+            </th>
+            <th>
+                woonplaats
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in @Model.Spelers)
+        {
+        <tr>
+            <td>
+                @item[1].ToString()
+            </td>
+            <td>
+                @item[2].ToString()
+            </td>
+            <td>
+                @item[3].ToString()
+            </td>
+            <td>
+                @item[4].ToString()
+            </td>
+
+        </tr>
+        }
+    </table>
+</body>

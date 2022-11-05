@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Core
 {
-    class SpelerColection
+    public class SpelerColection
     {
         readonly ISpelerColectionDal IspelerColectionDal;
         public List<DataRow> GetSpelers()
