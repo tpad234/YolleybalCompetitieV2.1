@@ -17,5 +17,6 @@ namespace Core
         {
             IwedstrijdColectionDal = wedstrijdColectionDal;
         }
+
     }
 }

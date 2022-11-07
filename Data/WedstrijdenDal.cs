@@ -17,7 +17,7 @@ namespace Data
             {
                 List<SqlParameter> parametersthuis = new List<SqlParameter>
             {
-                new SqlParameter("@teamthuis", int.Parse(dr.ItemArray[1].ToString())),         
+                new SqlParameter("@teamthuis", int.Parse(dr.ItemArray[1].ToString())),
 
             };
                 string Thuisteam = DalAlgemeen.Select("SELECT Team.Naam FROM Wedstrijd JOIN Team ON Wedstrijd.TeamThuis=Team.ID WHERE Wedstrijd.ID = @teamthuis;", parametersthuis).Rows[0].ItemArray[0].ToString();
@@ -32,12 +32,11 @@ namespace Data
                 Team uitteam = new Team(Uitteam);
 
                 Competitie competitie = new Competitie(dr.ItemArray[4].ToString());
-                Wedstrijd wedstrijd = new Wedstrijd( int.Parse(dr.ItemArray[0].ToString()),thuisteam, uitteam, dr.ItemArray[3].ToString(), competitie);
+                Wedstrijd wedstrijd = new Wedstrijd(int.Parse(dr.ItemArray[0].ToString()), thuisteam, uitteam, dr.ItemArray[3].ToString(), competitie);
 
                 wedstrijden.Add(wedstrijd);
             }
             return wedstrijden;
         }
-
     }
 }

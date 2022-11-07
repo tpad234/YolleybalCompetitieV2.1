@@ -6,9 +6,10 @@ namespace Core
 {
     public class Wedstrijd
     {
+        readonly IWedstrijdColectionDal IwedstrijdColectionDal;
         public int ID { get; }
-       public Team Teamthuis { get; }
-       public  Team Teamuit { get; }
+        public Team Teamthuis { get; }
+        public Team Teamuit { get; }
         public string Locatie { get; }
 
         public Competitie competitie { get; }
@@ -37,5 +38,10 @@ namespace Core
             this.competitie = competitie;
 
         }
+        public Wedstrijd(IWedstrijdColectionDal wedstrijdColectionDal)
+        {
+            IwedstrijdColectionDal = wedstrijdColectionDal;
+        }
+
     }
 }

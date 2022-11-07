@@ -13,7 +13,7 @@ namespace Core
         Rol Rol { get; }
 
 
-        public Gebruiker(string Naam, String Email, int aantalset, string wachtwoord, Rol Rol)
+        public Gebruiker(string Naam, String Email, string wachtwoord, Rol Rol)
         {
 
             this.Naam = Naam;
@@ -27,10 +27,30 @@ namespace Core
         {
             IgebruikerDal = gebruikerDal;
         }
-        public List<DataRow> Getuser(string username)
+        public Boolean CheckInlog(string username, string Wachtwoord )
         {
+          
+            List<Gebruiker> gebruikers = IgebruikerDal.GetGebruikerByName(username);
+            if (gebruikers.Count == 1)
+            {
+                if (gebruikers[0].Naam == username && gebruikers[0].Wachtwoord == Wachtwoord)
+                {
+                    return true;
 
-            return IgebruikerDal.GetGebruikerByName(username);
+                }
+                else
+                {
+                return false;
+
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+
         }
+ 
     }
 }

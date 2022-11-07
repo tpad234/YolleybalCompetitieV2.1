@@ -6,7 +6,7 @@ namespace Core.Enum
 {
     public enum Rol
     {
-        gebruiker,
-        scheidsrechter
+        gebruiker = 1,
+        scheidsrechter = 2
     }
 }

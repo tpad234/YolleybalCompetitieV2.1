@@ -1,14 +1,13 @@
 ﻿using Core;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace YolleybalCompetitie.Models
 {
-    public class WedstrijdViewModel
+    public class GebruikerViewModel
     {
-        public List<Wedstrijd> Wedstrijden { get; set; }
+      public Boolean toegestaan { get; set; }
     }
 }

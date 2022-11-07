@@ -22,8 +22,6 @@ namespace YolleybalCompetitie.Controllers
             WedstrijdViewModel wedstrijdViewModel = new WedstrijdViewModel()
             {
                 Wedstrijden = wedstrijden,
-                 // score = "",
-
 
 
             };
