@@ -8,7 +8,7 @@ namespace Core
     public class SpelerColection
     {
         readonly ISpelerColectionDal IspelerColectionDal;
-        public List<DataRow> GetSpelers()
+        public List<Speler> GetSpelers()
         {
 
             return IspelerColectionDal.GetSpelers();

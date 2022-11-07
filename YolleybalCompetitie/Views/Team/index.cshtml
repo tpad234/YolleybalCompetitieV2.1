@@ -10,14 +10,17 @@
     <thead>
         <tr>
             <th>naam</th>
-            <th></th>
+            <th>competitie</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Teams) {
+@foreach (var team in Model.Teams) {
         <tr>
             <td>
-                @item[1].ToString()
+                @team.Naam.ToString()
+            </td>
+            <td>
+                @team.Competitie.Naam.ToString()
             </td>
         </tr>
 }

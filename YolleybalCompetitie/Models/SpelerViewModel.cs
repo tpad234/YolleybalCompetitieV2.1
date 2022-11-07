@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -8,6 +9,6 @@ namespace YolleybalCompetitie.Models
 {
     public class SpelerViewModel
     {
-        public List<DataRow> Spelers { get; set; }
+        public List<Speler> Spelers { get; set; }
     }
 }

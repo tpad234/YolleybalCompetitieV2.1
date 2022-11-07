@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -8,6 +9,6 @@ namespace YolleybalCompetitie.Models
 {
     public class TeamViewModel
     {
-        public List<DataRow> Teams { get; set; }
+        public List<Team> Teams { get; set; }
     }
 }

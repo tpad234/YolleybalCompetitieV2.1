@@ -7,7 +7,7 @@ namespace Core
 {
     public interface ITeamCollectionDal
     {
-        List<DataRow> GetTeams();
+        List<Team> GetTeams();
         Team GetTeamByID(int ID);
     }
 }

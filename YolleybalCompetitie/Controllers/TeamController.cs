@@ -17,11 +17,11 @@ namespace YolleybalCompetitie.Controllers
         public IActionResult Index()
         {
             TeamCollection teamCollection = new TeamCollection(IteamCollectionDal);
-            List<DataRow> test3 = teamCollection.GetTeams();
+            List<Team> teams = teamCollection.GetTeams();
 
             TeamViewModel teamViewControler = new TeamViewModel()
             {
-                Teams = test3,
+                Teams = teams,
             };
             return View(teamViewControler);
         }

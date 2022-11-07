@@ -20,26 +20,31 @@
             <th>
                 woonplaats
             </th>
+            <th>
+                Team
+            </th>
             <th></th>
         </tr>
 
-        @foreach (var item in @Model.Spelers)
+        @foreach (var speler in @Model.Spelers)
         {
-        <tr>
-            <td>
-                @item[1].ToString()
-            </td>
-            <td>
-                @item[2].ToString()
-            </td>
-            <td>
-                @item[3].ToString()
-            </td>
-            <td>
-                @item[4].ToString()
-            </td>
-
-        </tr>
+    <tr>
+        <td>
+            @speler.Voornaam
+        </td>
+        <td>
+            @speler.Achternaam
+        </td>
+        <td>
+            @speler.Leeftijd
+        </td>
+        <td>
+            @speler.Woonplaats
+        </td>
+        <td>
+            @speler.Team.Naam
+        </td>
+    </tr>
         }
     </table>
 </body>

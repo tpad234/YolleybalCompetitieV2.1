@@ -6,11 +6,12 @@ namespace Core
 {
    public  class Speler
     {
-        string Voornaam { get; }
-        string Achternaam { get; }
-        int Leeftijd { get; }
-        string Woonplaats { get; }
-        Team Team { get; }
+       public string Voornaam { get; private set; }
+        
+      public string Achternaam { get; }
+       public int Leeftijd { get; }
+       public string Woonplaats { get; }
+        public Team Team { get; }
 
 
         public Speler(string voornaam, string achternaam, int leeftijd, string woonplaats, Team Team)

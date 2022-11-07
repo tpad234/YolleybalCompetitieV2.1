@@ -9,16 +9,19 @@ namespace Data
 {
     public class TeamDal : ITeamCollectionDal
     {
-        public List<DataRow> GetTeams()
+        public List<Team> GetTeams()
         {
-            DataTable dt = DalAlgemeen.Select("SELECT * FROM Team;");
+            DataTable dt = DalAlgemeen.Select("SELECT Team.Naam, Competitie.Naam  FROM Team JOIN Competitie ON Team.CompetitieID=Competitie.ID;");
 
-            List<DataRow> list = new List<DataRow>();
+            List<Team> Teams = new List<Team>();
             foreach (DataRow dr in dt.Rows)
             {
-                list.Add(dr);
+                Competitie competitie = new Competitie(dr.ItemArray[1].ToString());
+                Team team = new Team(dr.ItemArray[0].ToString(), competitie);
+
+                Teams.Add(team);
             }
-            return list;
+            return Teams;
         }
         public Team GetTeamByID(int ID)
         {

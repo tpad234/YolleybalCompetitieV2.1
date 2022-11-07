@@ -30,9 +30,13 @@ namespace Core
             Naam = naam;
             Teams = team;
             Wedstrijden = wedstijden;
-            
 
 
+
+        }
+        public Competitie(string naam)
+        {
+            Naam = naam;
         }
     }
 }

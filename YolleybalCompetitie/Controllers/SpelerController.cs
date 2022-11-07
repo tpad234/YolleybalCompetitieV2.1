@@ -17,11 +17,11 @@ namespace YolleybalCompetitie.Controllers
         public IActionResult Index()
         {
             SpelerColection spelerColection = new SpelerColection(IspelerColectionDal);
-            List<DataRow> test3 = spelerColection.GetSpelers();
+            List<Speler> spelers = spelerColection.GetSpelers();
 
             SpelerViewModel spelerViewModel = new SpelerViewModel()
             {
-                Spelers = test3,
+                Spelers = spelers,
             };
             return View(spelerViewModel);
         }

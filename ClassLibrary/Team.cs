@@ -8,7 +8,7 @@ namespace Core
     public class Team
     {
         private readonly ITeamCollectionDal teamDal;
-        string Naam { get; }
+       public string Naam { get; }
 
         private List<Speler> _spelers = new List<Speler>();
 
@@ -18,23 +18,24 @@ namespace Core
             set { _spelers = value; }
         }
 
+        public Competitie Competitie { get; }
+    
         public Team(ITeamCollectionDal iteamdal)
         {
 
             teamDal = iteamdal;
 
         }
-        public Team(string naam, List<Speler> spelers)
-        {
-
-            Naam = naam;
-            Spelers = spelers;
-
-        }
         public Team(string naam)
         {
 
             Naam = naam;
+        }
+        public Team(string naam, Competitie competitie)
+        {
+
+            Naam = naam;
+            Competitie = competitie;
 
         }
         public Team GetTeamByID(int ID)
