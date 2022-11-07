@@ -12,7 +12,7 @@ namespace YolleybalCompetitie.Models
         public List<Wedstrijd> Wedstrijden { get; set; }
 
 
-        public Core.Enum.Winaar Winaar { get; set; }
+        public Team Winaar { get; set; }
 
         public string Score { get; set; }
     }

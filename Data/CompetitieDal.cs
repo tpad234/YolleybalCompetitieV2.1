@@ -11,15 +11,16 @@ namespace Data
     public class CompetitieDal : ICompetitiecollectieDal
     {
 
-        public List<DataRow> GetCompetities()
+        public List<Competitie> GetCompetities()
         {
-            DataTable dt = DalAlgemeen.Select("SELECT * FROM Competitie;");
-            List<DataRow> list = new List<DataRow>();
+            DataTable dt = DalAlgemeen.Select("SELECT Naam FROM Competitie;");
+            List<Competitie> Competities = new List<Competitie>();
             foreach (DataRow dr in dt.Rows)
             {
-                list.Add(dr);
+                Competitie competitie = new Competitie(dr.ItemArray[0].ToString());
+                Competities.Add(competitie);
             }
-            return list;
+            return Competities;
         }
 
     }

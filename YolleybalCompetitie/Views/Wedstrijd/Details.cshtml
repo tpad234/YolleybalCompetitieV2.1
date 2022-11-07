@@ -1,0 +1,42 @@
+﻿@model SetViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<table class="table">
+    <tr>
+        <th>
+          set
+        </th>
+        <th>
+            score thuisteam
+        </th>
+        <th>
+            score thuisteam
+        </th>
+        <th>
+            winnaar
+        </th>
+    </tr>
+
+    @foreach (var set in @Model.Sets)
+    {
+        <tr>
+            <td>
+                @set.Aantalset
+            </td>
+            <td>
+                @set.Scoreteamthuis
+            </td>
+            <td>
+                @set.Scoreteamuit
+            </td>
+            <td>
+                @set.Winaar.Naam
+            </td>
+        </tr>
+    }
+</table>

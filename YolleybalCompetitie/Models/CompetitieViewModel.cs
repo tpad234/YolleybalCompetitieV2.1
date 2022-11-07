@@ -9,6 +9,6 @@ namespace YolleybalCompetitie.Models
 {
     public class CompetitieViewModel
     {
-            public List<DataRow> Competities { get; set; }
+            public List<Competitie> Competities { get; set; }
     }
 }

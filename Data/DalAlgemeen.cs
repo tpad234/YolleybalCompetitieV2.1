@@ -21,6 +21,10 @@ namespace Data
             {
                 SqlCommand mySqlCommand = new SqlCommand(query, _conn);
 
+                if (parameters != null)
+                {
+                    mySqlCommand.Parameters.AddRange(parameters.ToArray());
+                }
                 try
                 {
                     SqlDataReader SqlDataReader = mySqlCommand.ExecuteReader();

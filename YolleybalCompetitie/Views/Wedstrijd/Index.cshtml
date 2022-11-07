@@ -18,6 +18,9 @@
                 locatie
             </th>
             <th>Competitie</th>
+            <th>
+                winnaar
+            </th>
         </tr>
 
         @foreach (var wedstrijd in @Model.Wedstrijden)
@@ -34,6 +37,12 @@
         </td>
         <td>
             @wedstrijd.competitie.Naam
+        </td>
+        <td>
+            @wedstrijd.
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { ID = wedstrijd.ID }) |
         </td>
     </tr>
         }

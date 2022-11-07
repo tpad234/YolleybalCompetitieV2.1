@@ -13,21 +13,32 @@ namespace YolleybalCompetitie.Controllers
     public class WedstrijdController : Controller
     {
         private readonly IWedstrijdColectionDal IwedstrijdColectionDal = new WedstrijdenDal();
+        private readonly ISetDal isetDal = new SetDal();
         public IActionResult Index()
         {
             WedstrijdColection wedstrijdColection = new WedstrijdColection(IwedstrijdColectionDal);
-            List<Wedstrijd> test3 = wedstrijdColection.GetWedstrijden();
-         
+            List<Wedstrijd> wedstrijden = wedstrijdColection.GetWedstrijden();
+
             WedstrijdViewModel wedstrijdViewModel = new WedstrijdViewModel()
             {
-                Wedstrijden = test3,
-             //   score = "",
+                Wedstrijden = wedstrijden,
+                 // score = "",
 
-             //   Winaar = "",
 
 
             };
             return View(wedstrijdViewModel);
+        }
+        public IActionResult Details(int ID)
+        {
+            Set set = new Set(isetDal);
+            List<Set> Sets = set.GetSetsByWedstrijd(ID);
+
+            SetViewModel setViewModel = new SetViewModel()
+            {
+                Sets = Sets,
+            };
+            return View(setViewModel);
         }
     }
 }

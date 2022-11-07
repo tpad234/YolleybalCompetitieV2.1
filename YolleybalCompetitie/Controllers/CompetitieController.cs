@@ -16,11 +16,11 @@ namespace YolleybalCompetitie.Controllers
         public IActionResult Index()
         {
             Competitiecolection Competitiecolection = new Competitiecolection(IcompetitiecollectieDal);
-            List<DataRow> test3 = Competitiecolection.Test();
+            List<Competitie> Competities = Competitiecolection.Test();
          
             CompetitieViewModel competitieViewModel = new CompetitieViewModel()
             {
-                Competities = test3,
+                Competities = Competities,
             };
             return View(competitieViewModel);
         }

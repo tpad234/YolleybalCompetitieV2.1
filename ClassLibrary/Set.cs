@@ -7,23 +7,35 @@ namespace Core
    public class Set
     {
         private int ID { get; }
-        private Wedstrijd WedstrijdID { get; }
-        private int Aantalset { get; }
+        private Wedstrijd wedstrijd { get; }
+        public int Aantalset { get; }
         public int Scoreteamthuis { get; private set; }
         public int Scoreteamuit { get; private set; }
-        private Winaar Winaar { get;  }
+        public Team Winaar { get;  }
 
 
-        public Set(Wedstrijd WedstrijID, int aantalset, int Scoreteamthuis, int Scoreteamuit, Winaar Winaar)
+        public Set(Wedstrijd wedstrijd, int aantalset, int Scoreteamthuis, int Scoreteamuit, Team Winaar)
         {
 
-            this.WedstrijdID = WedstrijID;
+            this.wedstrijd = wedstrijd;
             this.Aantalset = aantalset;
             this.Scoreteamthuis = Scoreteamthuis;
             this.Scoreteamuit = Scoreteamuit;
             this.Winaar = Winaar;
+            
 
 
+        }
+
+        readonly ISetDal isetDal;
+        public List<Set> GetSetsByWedstrijd(int ID)
+        {
+
+            return isetDal.GetSetByWedstrijd(ID);
+        }
+        public Set(ISetDal IsetDal)
+        {
+            isetDal = IsetDal;
         }
     }
 

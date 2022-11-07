@@ -6,6 +6,7 @@ namespace Core
 {
     public class Wedstrijd
     {
+        public int ID { get; }
        public Team Teamthuis { get; }
        public  Team Teamuit { get; }
         public string Locatie { get; }
@@ -19,13 +20,20 @@ namespace Core
             set { _sets = value; }
         }
 
-        public Wedstrijd(Team Teamthuis, Team Teamuit, string Locatie, Competitie competitie )
+        public Wedstrijd(int ID, Team Teamthuis, Team Teamuit, string Locatie, Competitie competitie)
         {
-
+            this.ID = ID;
             this.Teamthuis = Teamthuis;
             this.Teamuit = Teamuit;
             this.Locatie = Locatie;
-            this.Sets = Sets;
+            this.competitie = competitie;
+
+        }
+        public Wedstrijd(int ID, Team Teamthuis, Team Teamuit, Competitie competitie)
+        {
+            this.ID = ID;
+            this.Teamthuis = Teamthuis;
+            this.Teamuit = Teamuit;
             this.competitie = competitie;
 
         }
