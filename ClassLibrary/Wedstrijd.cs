@@ -10,8 +10,7 @@ namespace Core
        public  Team Teamuit { get; }
         public string Locatie { get; }
 
-        private List<Team> _teams = new List<Team>();
-
+        public Competitie competitie { get; }
         private List<Set> _sets = new List<Set>();
 
         public List<Set> Sets
@@ -20,14 +19,14 @@ namespace Core
             set { _sets = value; }
         }
 
-        public Wedstrijd(Team Teamthuis, Team Teamuit, string Locatie, List<Set> Sets)
+        public Wedstrijd(Team Teamthuis, Team Teamuit, string Locatie, Competitie competitie )
         {
 
             this.Teamthuis = Teamthuis;
             this.Teamuit = Teamuit;
             this.Locatie = Locatie;
             this.Sets = Sets;
-
+            this.competitie = competitie;
 
         }
     }

@@ -9,7 +9,7 @@ namespace YolleybalCompetitie.Models
 {
     public class WedstrijdViewModel
     {
-        public List<DataRow> Wedstrijden { get; set; }
+        public List<Wedstrijd> Wedstrijden { get; set; }
 
 
         public Core.Enum.Winaar Winaar { get; set; }

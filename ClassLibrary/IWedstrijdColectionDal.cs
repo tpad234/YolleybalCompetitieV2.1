@@ -7,6 +7,6 @@ namespace Core
 {
     public interface IWedstrijdColectionDal
     {
-        List<DataRow> GetWedstrijden();
+        List<Wedstrijd> GetWedstrijden();
     }
 }

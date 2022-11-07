@@ -8,7 +8,7 @@ namespace Core
     public class WedstrijdColection
     {
         readonly IWedstrijdColectionDal IwedstrijdColectionDal;
-        public List<DataRow> GetWedstrijden()
+        public List<Wedstrijd> GetWedstrijden()
         {
 
             return IwedstrijdColectionDal.GetWedstrijden();

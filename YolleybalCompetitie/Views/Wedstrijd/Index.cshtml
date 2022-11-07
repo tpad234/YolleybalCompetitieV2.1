@@ -17,22 +17,25 @@
             <th>
                 locatie
             </th>
-            <th></th>
+            <th>Competitie</th>
         </tr>
 
-        @foreach (var item in @Model.Wedstrijden)
+        @foreach (var wedstrijd in @Model.Wedstrijden)
         {
-         <tr>
-            <td>
-                @item[1].ToString()
-            </td>
-            <td>
-                @item[2].ToString()
-            </td>
-            <td>
-                @item[4].ToString()
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @wedstrijd.Teamthuis.Naam
+        </td>
+        <td>
+            @wedstrijd.Teamuit.Naam
+        </td>
+        <td>
+            @wedstrijd.Locatie
+        </td>
+        <td>
+            @wedstrijd.competitie.Naam
+        </td>
+    </tr>
         }
     </table>
 </body>

@@ -16,7 +16,7 @@ namespace YolleybalCompetitie.Controllers
         public IActionResult Index()
         {
             WedstrijdColection wedstrijdColection = new WedstrijdColection(IwedstrijdColectionDal);
-            List<DataRow> test3 = wedstrijdColection.GetWedstrijden();
+            List<Wedstrijd> test3 = wedstrijdColection.GetWedstrijden();
          
             WedstrijdViewModel wedstrijdViewModel = new WedstrijdViewModel()
             {
