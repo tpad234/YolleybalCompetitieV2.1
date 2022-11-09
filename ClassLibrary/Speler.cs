@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.DTO;
 
 namespace Core
 {
@@ -24,6 +25,14 @@ namespace Core
             this.Team = Team;
 
 
+        }
+        public Speler( SpelerDTO speler)
+        {
+            Voornaam = speler.Voornaam;
+            Achternaam = speler.Achternaam;
+            Leeftijd = speler.Leeftijd;
+            Woonplaats = speler.Woonplaats;
+            Team = new Team(speler.Team);
         }
     }
 

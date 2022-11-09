@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
@@ -38,9 +39,11 @@ namespace Core
             Competitie = competitie;
 
         }
-        public Team GetTeamByID(int ID)
+        public Team(TeamDTO teamDTO)
         {
-            return teamDal.GetTeamByID(ID);
+            Naam = teamDTO.Naam;
+            Competitie = new Competitie(teamDTO.Competitie);
+
         }
     }
 }

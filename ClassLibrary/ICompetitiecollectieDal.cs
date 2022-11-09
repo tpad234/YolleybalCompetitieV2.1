@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Core.DTO;
+using Data;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +9,7 @@ namespace Core
 {
     public interface ICompetitiecollectieDal
     {
-        List<Competitie> GetCompetities();
+        List<CompetitieDTO> GetCompetities();
 
     }
  

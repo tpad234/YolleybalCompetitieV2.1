@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -37,6 +38,10 @@ namespace Core
         public Competitie(string naam)
         {
             Naam = naam;
+        }
+        public Competitie(CompetitieDTO competitieDTO)
+        {
+            Naam = competitieDTO.Naam;
         }
     }
 }

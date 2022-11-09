@@ -5,19 +5,20 @@ using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Core;
+using Core.DTO;
 
 namespace Data
 {
     public class CompetitieDal : ICompetitiecollectieDal
     {
 
-        public List<Competitie> GetCompetities()
+        public List<CompetitieDTO> GetCompetities()
         {
             DataTable dt = DalAlgemeen.Select("SELECT Naam FROM Competitie;");
-            List<Competitie> Competities = new List<Competitie>();
+            List<CompetitieDTO> Competities = new List<CompetitieDTO>();
             foreach (DataRow dr in dt.Rows)
             {
-                Competitie competitie = new Competitie(dr.ItemArray[0].ToString());
+                CompetitieDTO competitie = new CompetitieDTO(dr.ItemArray[0].ToString());
                 Competities.Add(competitie);
             }
             return Competities;

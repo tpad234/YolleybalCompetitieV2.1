@@ -4,28 +4,29 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using Core.DTO;
 
 namespace Data
 {
     public class TeamDal : ITeamCollectionDal
     {
-        public List<Team> GetTeams()
+        public List<TeamDTO> GetTeams()
         {
             DataTable dt = DalAlgemeen.Select("SELECT Team.Naam, Competitie.Naam  FROM Team JOIN Competitie ON Team.CompetitieID=Competitie.ID;");
 
-            List<Team> Teams = new List<Team>();
+            List<TeamDTO> Teams = new List<TeamDTO>();
             foreach (DataRow dr in dt.Rows)
             {
-                Competitie competitie = new Competitie(dr.ItemArray[1].ToString());
-                Team team = new Team(dr.ItemArray[0].ToString(), competitie);
+                CompetitieDTO competitie = new CompetitieDTO(dr.ItemArray[1].ToString());
+                TeamDTO team = new TeamDTO(dr.ItemArray[0].ToString(), competitie);
 
                 Teams.Add(team);
             }
             return Teams;
         }
-        public Team GetTeamByID(int ID)
+        public TeamDTO GetTeamByID(int ID)
         {
-            Team team = null;
+            TeamDTO team = null;
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@ID", ID)
@@ -35,7 +36,7 @@ namespace Data
 
             foreach (DataRow dr in dt.Rows)
             {
-                team = new Team(dr.ItemArray[1].ToString());
+                team = new TeamDTO(dr.ItemArray[1].ToString());
 
             }
             return team;
