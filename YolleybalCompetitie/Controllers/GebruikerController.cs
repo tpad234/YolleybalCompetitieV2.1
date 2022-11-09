@@ -18,7 +18,7 @@ namespace YolleybalCompetitie.Controllers
             
             return View();
         }
-        public IActionResult Inloggen(string username, string Wachtwoord )
+        public IActionResult Inloggen(string username, string Wachtwoord)
         {
             Gebruiker gebruiker = new Gebruiker(IgebruikerDal);
 

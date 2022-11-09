@@ -1,10 +1,11 @@
-﻿
+﻿@model GebruikerViewModel
 @{
     ViewData["Title"] = "Index";
 }
     <body>
 
         <h1>inloggen</h1>
+        <form method="post">
 
         <table>
             <tr>
@@ -17,8 +18,9 @@
             </tr>
             <tr>
                 <td>
-                    <Button value="Inloggen" type="submit" ID="Inloggen">inloggen</Button>
+                    <input onclick="location.href='@Url.Action("Inloggen", "Gebruiker")'" value="Inloggen" type="submit" ID="Inloggen"/>
                 </td>
             </tr>
         </table>
+        </form>
     </body>
