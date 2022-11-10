@@ -15,5 +15,16 @@ namespace Core.DTO
 
         public List<Set> Sets { get; set; }
 
+
+        public WedstrijdDTO(int ID, TeamDTO Teamthuis, TeamDTO Teamuit, string locatie,CompetitieDTO competitie)
+        {
+            this.ID = ID;
+            this.Teamthuis = Teamthuis;
+            this.Teamuit = Teamuit;
+            this.Locatie = locatie;
+            this.competitie = competitie;
+
+        }
+
     }
 }

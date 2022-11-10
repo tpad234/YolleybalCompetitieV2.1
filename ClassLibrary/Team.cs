@@ -42,7 +42,11 @@ namespace Core
         public Team(TeamDTO teamDTO)
         {
             Naam = teamDTO.Naam;
+            if (teamDTO.Competitie != null)
+            {
             Competitie = new Competitie(teamDTO.Competitie);
+
+            }
 
         }
     }

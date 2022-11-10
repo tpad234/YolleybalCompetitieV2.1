@@ -7,8 +7,8 @@ namespace Core.DTO
     public class CompetitieDTO
     {
         public string Naam { get; }
-        public List<Team> Teams { get; set; }
-        public List<Wedstrijd> Wedstrijden { get; set; }
+        public List<TeamDTO> Teams { get; set; }
+        public List<WedstrijdDTO> Wedstrijden { get; set; }
 
         public CompetitieDTO( string naam)
         {

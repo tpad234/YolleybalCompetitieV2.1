@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.DTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -41,6 +42,17 @@ namespace Core
         public Wedstrijd(IWedstrijdColectionDal wedstrijdColectionDal)
         {
             IwedstrijdColectionDal = wedstrijdColectionDal;
+        }
+
+        public Wedstrijd(WedstrijdDTO wedstrijdDTO)
+        {
+
+            ID = wedstrijdDTO.ID;
+            Teamthuis = new Team(wedstrijdDTO.Teamthuis);
+            Teamuit = new Team(wedstrijdDTO.Teamuit);
+            Locatie = wedstrijdDTO.Locatie;
+            competitie = new Competitie(wedstrijdDTO.competitie);
+
         }
 
     }

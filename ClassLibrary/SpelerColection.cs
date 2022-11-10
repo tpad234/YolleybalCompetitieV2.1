@@ -15,7 +15,7 @@ namespace Core
           List<SpelerDTO> spelerDTOs =  IspelerColectionDal.GetSpelers();
             foreach (SpelerDTO spelerDTO in spelerDTOs)
             {
-               spelers.Add( new Speler(spelerDTO));
+               spelers.Add(new Speler(spelerDTO));
             }
             return spelers;
 

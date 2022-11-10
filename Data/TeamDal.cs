@@ -31,12 +31,13 @@ namespace Data
             {
                 new SqlParameter("@ID", ID)
             };
-            DataTable dt = DalAlgemeen.Select("SELECT Naam FROM Team WHERE ID =@ID", parameters);
+            DataTable dt = DalAlgemeen.Select("SELECT  Team.Naam, Competitie.Naam FROM Team JOIN Competitie ON Team.CompetitieID=Competitie.ID WHERE ID =@ID", parameters);
 
 
             foreach (DataRow dr in dt.Rows)
             {
-                team = new TeamDTO(dr.ItemArray[1].ToString());
+                CompetitieDTO competitie = new CompetitieDTO(dr.ItemArray[1].ToString());
+                team = new TeamDTO(dr.ItemArray[0].ToString(), competitie);
 
             }
             return team;
