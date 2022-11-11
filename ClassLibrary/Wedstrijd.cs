@@ -44,7 +44,7 @@ namespace Core
             IwedstrijdColectionDal = wedstrijdColectionDal;
         }
 
-        public Wedstrijd(GebruikerDTO wedstrijdDTO)
+        public Wedstrijd(WedstrijdDTO wedstrijdDTO)
         {
 
             ID = wedstrijdDTO.ID;

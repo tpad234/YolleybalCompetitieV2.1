@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Core.DTO
 {
-    public class GebruikerDTO
+    public class WedstrijdDTO
     {
         public int ID { get; set; }
         public TeamDTO Teamthuis { get; set; }
@@ -16,7 +16,7 @@ namespace Core.DTO
         public List<Set> Sets { get; set; }
 
 
-        public GebruikerDTO(int ID, TeamDTO Teamthuis, TeamDTO Teamuit, string locatie,CompetitieDTO competitie)
+        public WedstrijdDTO(int ID, TeamDTO Teamthuis, TeamDTO Teamuit, string locatie,CompetitieDTO competitie)
         {
             this.ID = ID;
             this.Teamthuis = Teamthuis;

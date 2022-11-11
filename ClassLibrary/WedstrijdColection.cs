@@ -13,8 +13,8 @@ namespace Core
         {
 
             List<Wedstrijd> wedstrijden = new List<Wedstrijd>();
-            List<GebruikerDTO> wedstrijdDTOs = IwedstrijdColectionDal.GetWedstrijden();
-            foreach (GebruikerDTO wedstrijdDTO in wedstrijdDTOs)
+            List<WedstrijdDTO> wedstrijdDTOs = IwedstrijdColectionDal.GetWedstrijden();
+            foreach (WedstrijdDTO wedstrijdDTO in wedstrijdDTOs)
             {
                 wedstrijden.Add(new Wedstrijd(wedstrijdDTO));
             }
