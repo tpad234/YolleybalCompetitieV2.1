@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Core;
 
 namespace YolleybalCompetitie
 {
@@ -25,7 +26,14 @@ namespace YolleybalCompetitie
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-              // services.AddScoped<ITeamDal, TeamDal>();
+            services.AddSingleton<ITeamCollectionDal, TeamDal>();
+            services.AddSingleton<ISpelerColectionDal, SpelerDal>();
+            services.AddSingleton<IWedstrijdColectionDal, WedstrijdenDal>();
+            services.AddSingleton<ICompetitiecollectieDal, CompetitieDal>();
+            services.AddSingleton<IGebruikerDal, GebruikerDal>();
+            services.AddSingleton<ISetDal, SetDal>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

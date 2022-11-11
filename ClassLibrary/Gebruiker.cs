@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using Core.DTO;
 using Core.Enum;
 namespace Core
 {
@@ -27,13 +28,26 @@ namespace Core
         {
             IgebruikerDal = gebruikerDal;
         }
+        public Gebruiker(GeberuikerDTO geberuikerDTO)
+        {
+            Naam = geberuikerDTO.Naam;
+            Email = geberuikerDTO.Naam;
+            Wachtwoord = geberuikerDTO.Wachtwoord;
+            Rol = geberuikerDTO.Rol;
+        }
         public Boolean CheckInlog(string username, string Wachtwoord )
         {
-          
-            List<Gebruiker> gebruikers = IgebruikerDal.GetGebruikerByName(username);
+            List<Gebruiker> gebruikers = new List<Gebruiker>();
+            List<GeberuikerDTO> gebruikerDTO = IgebruikerDal.GetGebruikerByName(username);
+            foreach (GeberuikerDTO gebruiker in gebruikerDTO)
+            {
+                gebruikers.Add(new Gebruiker(gebruiker));
+            }
+
+
             if (gebruikers.Count == 1)
             {
-                if (gebruikers[0].Naam == username && gebruikers[0].Wachtwoord == Wachtwoord)
+                if (gebruikers[0].Naam.ToString() == username && gebruikers[0].Wachtwoord.ToString() == Wachtwoord)
                 {
                     return true;
 

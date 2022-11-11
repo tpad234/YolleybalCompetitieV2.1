@@ -8,6 +8,6 @@ namespace Core
 {
     public interface IWedstrijdColectionDal
     {
-        List<WedstrijdDTO> GetWedstrijden();
+        List<GebruikerDTO> GetWedstrijden();
     }
 }

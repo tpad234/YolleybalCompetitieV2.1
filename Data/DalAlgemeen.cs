@@ -63,7 +63,7 @@ namespace Data
                 catch (Exception)
                 {
 
-                    Console.WriteLine("Error connecti ng to the database. Contact it support.", "Database error 1234");
+                    Console.WriteLine("Error connecting to the database. Contact it support.", "Database error 1234");
                 }
                 finally
                 {
@@ -72,7 +72,7 @@ namespace Data
             }
             return rowsAffected;
         }
-        public static void OpenSqlConnection()
+        private static void OpenSqlConnection()
         {
 
 
@@ -83,7 +83,7 @@ namespace Data
             Console.WriteLine("ConnectionString: {0}", _conn.ConnectionString);
 
         }
-        public static void CloseSqlConnection()
+        private static void CloseSqlConnection()
         {
 
 

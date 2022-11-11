@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.DTO;
 using Core.Enum;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Data
    public class GebruikerDal : IGebruikerDal
     {
         private Rol rol;
-        public List<Gebruiker> GetGebruikerByName(string username)
+        public List<GeberuikerDTO> GetGebruikerByName(string username)
         {
             List<SqlParameter> parameters = new List<SqlParameter>
             {
@@ -19,7 +20,7 @@ namespace Data
             };
             DataTable dt = DalAlgemeen.Select("SELECT Naam, Email, Wachtwoord, rol FROM Gebruiker WHERE Naam =@username", parameters);
 
-            List<Gebruiker> gebruikers = new List<Gebruiker>();
+            List<GeberuikerDTO> gebruikers = new List<GeberuikerDTO>();
             foreach (DataRow dr in dt.Rows)
             {
                 if (int.Parse(dr.ItemArray[3].ToString()) == 1)
@@ -31,7 +32,7 @@ namespace Data
                 {
                      rol = Rol.scheidsrechter;
                 }
-                Gebruiker gebruiker = new Gebruiker(dr.ItemArray[0].ToString(), dr.ItemArray[1].ToString(), dr.ItemArray[2].ToString(), rol);
+                GeberuikerDTO gebruiker = new GeberuikerDTO(dr.ItemArray[0].ToString(), dr.ItemArray[1].ToString(), dr.ItemArray[2].ToString(), rol);
                 gebruikers.Add(gebruiker);
             }
             return gebruikers;

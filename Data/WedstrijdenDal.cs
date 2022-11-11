@@ -10,10 +10,10 @@ namespace Data
 {
     public class WedstrijdenDal : IWedstrijdColectionDal
     {
-        public List<WedstrijdDTO> GetWedstrijden()
+        public List<GebruikerDTO> GetWedstrijden()
         {
             DataTable dt = DalAlgemeen.Select("SELECT Wedstrijd.ID, Wedstrijd.TeamThuis, Wedstrijd.Teamuit, Wedstrijd.Locatie, Competitie.Naam  FROM Wedstrijd JOIN Competitie ON Wedstrijd.CompetitieID=Competitie.ID;");
-            List<WedstrijdDTO> wedstrijden = new List<WedstrijdDTO>();
+            List<GebruikerDTO> wedstrijden = new List<GebruikerDTO>();
             foreach (DataRow dr in dt.Rows)
             {
                 List<SqlParameter> parametersthuis = new List<SqlParameter>
@@ -33,7 +33,7 @@ namespace Data
                 TeamDTO uitteam = new TeamDTO(Uitteam);
 
                 CompetitieDTO competitie = new CompetitieDTO(dr.ItemArray[4].ToString());
-                WedstrijdDTO wedstrijd = new WedstrijdDTO(int.Parse(dr.ItemArray[0].ToString()), thuisteam, uitteam, dr.ItemArray[3].ToString(), competitie);
+                GebruikerDTO wedstrijd = new GebruikerDTO(int.Parse(dr.ItemArray[0].ToString()), thuisteam, uitteam, dr.ItemArray[3].ToString(), competitie);
 
                 wedstrijden.Add(wedstrijd);
             }

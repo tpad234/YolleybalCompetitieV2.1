@@ -8,10 +8,20 @@ namespace Core.DTO
     public class GeberuikerDTO
     {
 
-        string Naam { get; set; }
-        string Email { get; set; }
-        string Wachtwoord { get; set; }
-        Rol Rol { get; set; }
+        public string Naam { get; set; }
+        public string Email { get; set; }
+        public string Wachtwoord { get; set; }
+        public Rol Rol { get; set; }
 
+        public GeberuikerDTO(string Naam, String Email, string wachtwoord, Rol Rol)
+        {
+
+            this.Naam = Naam;
+            this.Email = Email;
+            this.Wachtwoord = wachtwoord;
+            this.Rol = Rol;
+
+
+        }
     }
 }

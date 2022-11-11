@@ -5,20 +5,20 @@
     <body>
 
         <h1>inloggen</h1>
-        <form method="post">
+        <form method="post" asp-action="Inloggen">
 
         <table>
             <tr>
                 <td>
-                    <input id="gebruikersnaam" type="text" placeholder="Gebruikersnaam">
+                    <input id="gebruikersnaam" name="gebruikersnaam" type="text" placeholder="Gebruikersnaam">
                 </td>
                 <td>
-                    <input id="wachtwoord" type="password" placeholder="Wachtwoord">
+                    <input id="Wachtwoord" name="Wachtwoord" type="password" placeholder="Wachtwoord">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input onclick="location.href='@Url.Action("Inloggen", "Gebruiker")'" value="Inloggen" type="submit" ID="Inloggen"/>
+                    <input value="Inloggen" type="submit" ID="Inloggen"/>
                 </td>
             </tr>
         </table>

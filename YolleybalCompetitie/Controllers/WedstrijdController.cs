@@ -12,11 +12,17 @@ namespace YolleybalCompetitie.Controllers
 {
     public class WedstrijdController : Controller
     {
-        private readonly IWedstrijdColectionDal IwedstrijdColectionDal = new WedstrijdenDal();
-        private readonly ISetDal isetDal = new SetDal();
+        private readonly IWedstrijdColectionDal IWedstrijdColectionDal;
+        private readonly ISetDal iSetDal;
+
+        public WedstrijdController(IWedstrijdColectionDal IwedstrijdColectionDal, ISetDal isetDal)
+        {
+            IWedstrijdColectionDal = IwedstrijdColectionDal;
+            iSetDal = isetDal;
+        }
         public IActionResult Index()
         {
-            WedstrijdColection wedstrijdColection = new WedstrijdColection(IwedstrijdColectionDal);
+            WedstrijdColection wedstrijdColection = new WedstrijdColection(IWedstrijdColectionDal);
             List<Wedstrijd> wedstrijden = wedstrijdColection.GetWedstrijden();
 
             WedstrijdViewModel wedstrijdViewModel = new WedstrijdViewModel()
@@ -29,7 +35,7 @@ namespace YolleybalCompetitie.Controllers
         }
         public IActionResult Details(int ID)
         {
-            Set set = new Set(isetDal);
+            Set set = new Set(iSetDal);
             List<Set> Sets = set.GetSetsByWedstrijd(ID);
 
             SetViewModel setViewModel = new SetViewModel()

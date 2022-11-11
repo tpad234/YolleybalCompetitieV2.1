@@ -12,9 +12,12 @@ namespace YolleybalCompetitie.Controllers
 {
     public class SetController : Controller
     {
-        private readonly ISetDal iSetDal = new SetDal();
+        private readonly ISetDal iSetDal;
 
-        
+        public SetController(ISetDal isetDal)
+        {
+            iSetDal = isetDal;
+        }
         public IActionResult Index(int ID)
         {
             Set set = new Set(iSetDal);

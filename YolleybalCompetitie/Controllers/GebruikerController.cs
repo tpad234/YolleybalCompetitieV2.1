@@ -18,13 +18,16 @@ namespace YolleybalCompetitie.Controllers
             
             return View();
         }
-        public IActionResult Inloggen(string username, string Wachtwoord)
+
+[HttpPost]
+        public IActionResult Inloggen(GebruikerViewModel vm)
+      //  public IActionResult Inloggen(string username, string Wachtwoord)
         {
             Gebruiker gebruiker = new Gebruiker(IgebruikerDal);
 
-            if (gebruiker.CheckInlog(username, Wachtwoord))
+            if (gebruiker.CheckInlog(vm.gebruikersnaam, vm.Wachtwoord))
             {
-                return View();
+                return RedirectToAction("Index", "Competitie");
             }
             return View();
         }

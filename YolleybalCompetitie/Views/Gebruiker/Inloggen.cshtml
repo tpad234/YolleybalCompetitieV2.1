@@ -1,7 +1,27 @@
 ﻿
+@model GebruikerViewModel
 @{
     ViewData["Title"] = "Inloggen";
 }
+<body>
 
-<h1>Inloggen</h1>
+    <h1>inloggen</h1>
+    <form method="post" asp-action="Inloggen">
 
+        <table>
+            <tr>
+                <td>
+                    <input id="gebruikersnaam" name="gebruikersnaam" type="text" placeholder="Gebruikersnaam">
+                </td>
+                <td>
+                    <input id="Wachtwoord" name="Wachtwoord" type="password" placeholder="Wachtwoord">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input value="Inloggen" type="submit" ID="Inloggen" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>

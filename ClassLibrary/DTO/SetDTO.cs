@@ -7,7 +7,7 @@ namespace Core.DTO
     public class SetDTO
     {
         private int ID { get; }
-        private WedstrijdDTO wedstrijd { get; }
+        private GebruikerDTO wedstrijd { get; }
         public int Aantalset { get; }
         public int Scoreteamthuis { get; private set; }
         public int Scoreteamuit { get; private set; }

@@ -12,11 +12,15 @@ namespace YolleybalCompetitie.Controllers
 {
     public class SpelerController : Controller
     {
-        private readonly ISpelerColectionDal IspelerColectionDal = new SpelerDal();
+        private readonly ISpelerColectionDal ISpelerColectionDal;
 
+        public SpelerController(ISpelerColectionDal IspelerColectionDal)
+        {
+            ISpelerColectionDal = IspelerColectionDal;
+        }
         public IActionResult Index()
         {
-            SpelerColection spelerColection = new SpelerColection(IspelerColectionDal);
+            SpelerColection spelerColection = new SpelerColection(ISpelerColectionDal);
             List<Speler> spelers = spelerColection.GetSpelers();
 
             SpelerViewModel spelerViewModel = new SpelerViewModel()

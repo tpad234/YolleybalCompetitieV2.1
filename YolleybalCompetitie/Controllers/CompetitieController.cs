@@ -12,10 +12,14 @@ namespace YolleybalCompetitie.Controllers
 {
     public class CompetitieController : Controller
     {
-        private readonly ICompetitiecollectieDal IcompetitiecollectieDal = new CompetitieDal();
+        private readonly ICompetitiecollectieDal ICompetitiecollectieDal ;
+        public CompetitieController(ICompetitiecollectieDal IcompetitiecollectieDal)
+        {
+            ICompetitiecollectieDal = IcompetitiecollectieDal;
+        }
         public IActionResult Index()
         {
-            Competitiecolection Competitiecolection = new Competitiecolection(IcompetitiecollectieDal);
+            Competitiecolection Competitiecolection = new Competitiecolection(ICompetitiecollectieDal);
             List<Competitie> Competities = Competitiecolection.Test();
          
             CompetitieViewModel competitieViewModel = new CompetitieViewModel()

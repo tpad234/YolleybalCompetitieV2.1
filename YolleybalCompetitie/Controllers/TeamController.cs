@@ -12,7 +12,12 @@ namespace YolleybalCompetitie.Controllers
 {
     public class TeamController : Controller
     {
-        private readonly ITeamCollectionDal IteamCollectionDal = new TeamDal();
+        private readonly ITeamCollectionDal IteamCollectionDal;
+
+        public TeamController(ITeamCollectionDal iteamCollectionDal)
+        {
+            IteamCollectionDal = iteamCollectionDal;
+        }
 
         public IActionResult Index()
         {
