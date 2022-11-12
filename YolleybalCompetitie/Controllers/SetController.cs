@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core;
+using Core.Enum;
 using Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YolleybalCompetitie.Models;
@@ -21,7 +23,7 @@ namespace YolleybalCompetitie.Controllers
         public IActionResult Index(int ID)
         {
             Set set = new Set(iSetDal);
-           List<Set> Sets = set.GetSetsByWedstrijd(ID);
+            List<Set> Sets = set.GetSetsByWedstrijd(ID);
 
             SetViewModel setViewModel = new SetViewModel()
             {
@@ -29,7 +31,18 @@ namespace YolleybalCompetitie.Controllers
             };
             return View(setViewModel);
         }
+        public IActionResult UpdateSet(int ID, int ScoreThuisTeam, int ScoreUitTeam, Winaar winnaar)
+        {
 
+            Set set = new Set(iSetDal);
+            List<Set> Sets = set.GetSetsByWedstrijd(ID);
+
+            SetViewModel setViewModel = new SetViewModel()
+            {
+                Sets = Sets,
+            };
+            return View(setViewModel);
+        }  
 
     }
 }

@@ -20,7 +20,7 @@ namespace YolleybalCompetitie.Controllers
         public IActionResult Index()
         {
             Competitiecolection Competitiecolection = new Competitiecolection(ICompetitiecollectieDal);
-            List<Competitie> Competities = Competitiecolection.Test();
+            List<Competitie> Competities = Competitiecolection.GetCompetities();
          
             CompetitieViewModel competitieViewModel = new CompetitieViewModel()
             {

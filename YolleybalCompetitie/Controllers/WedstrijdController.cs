@@ -35,6 +35,7 @@ namespace YolleybalCompetitie.Controllers
         }
         public IActionResult Details(int ID)
         {
+
             Set set = new Set(iSetDal);
             List<Set> Sets = set.GetSetsByWedstrijd(ID);
 
@@ -44,5 +45,6 @@ namespace YolleybalCompetitie.Controllers
             };
             return View(setViewModel);
         }
+
     }
 }

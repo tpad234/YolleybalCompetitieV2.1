@@ -12,7 +12,7 @@ namespace YolleybalCompetitie.Controllers
     public class GebruikerController : Controller
     {
         private readonly IGebruikerDal IgebruikerDal = new GebruikerDal();
-
+        
         public IActionResult Index()
         {
             

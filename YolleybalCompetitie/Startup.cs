@@ -33,7 +33,12 @@ namespace YolleybalCompetitie
             services.AddSingleton<IGebruikerDal, GebruikerDal>();
             services.AddSingleton<ISetDal, SetDal>();
 
-
+            services.AddAuthentication("CookieAuth")
+             .AddCookie("CookieAuth", config =>
+             {
+                 config.Cookie.Name = "default";
+                
+             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +58,8 @@ namespace YolleybalCompetitie
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

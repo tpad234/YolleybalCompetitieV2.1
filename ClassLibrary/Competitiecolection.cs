@@ -11,7 +11,7 @@ namespace Core
     public class Competitiecolection
     {
         readonly ICompetitiecollectieDal competitiecollectieDal;
-        public List<Competitie> Test()
+        public List<Competitie> GetCompetities()
         {
             {
                 List<Competitie> competities = new List<Competitie>();
