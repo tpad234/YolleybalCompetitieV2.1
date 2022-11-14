@@ -1,7 +1,48 @@
-﻿
+﻿@model SetViewModel
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Details</h1>
 
+<form method="post" asp-action="UpdateSet">
+    <table class="table">
+        <tr>
+            <th>
+                set
+            </th>
+            <th>
+                score thuisteam
+            </th>
+            <th>
+                score thuisteam
+            </th>
+            <th>
+                winnaar
+            </th>
+        </tr>
+
+        @foreach (var set in @Model.Sets)
+    {
+        <tr>
+            <td>
+                @set.Aantalset
+            </td>
+            <td>
+                <input id="Scoreteamthuis" name="Scoreteamthuis" type="text" placeholder="@set.Scoreteamthuis">
+            </td>
+            <td>
+                <input id="Scoreteamuit" name="Scoreteamuit" type="text" placeholder="@set.Scoreteamuit">
+            </td>
+            <td>
+                <input id="winaar" name="winaar" type="text" placeholder="@set.Winaar.Naam">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input value="Update" type="submit" ID="UpdateSet" />
+            </td>
+        </tr>
+    }
+    </table>
+</form>

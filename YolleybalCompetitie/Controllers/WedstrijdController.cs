@@ -7,6 +7,7 @@ using Core;
 using Microsoft.AspNetCore.Mvc;
 using Data;
 using YolleybalCompetitie.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace YolleybalCompetitie.Controllers
 {
@@ -14,7 +15,6 @@ namespace YolleybalCompetitie.Controllers
     {
         private readonly IWedstrijdColectionDal IWedstrijdColectionDal;
         private readonly ISetDal iSetDal;
-
         public WedstrijdController(IWedstrijdColectionDal IwedstrijdColectionDal, ISetDal isetDal)
         {
             IWedstrijdColectionDal = IwedstrijdColectionDal;
@@ -33,6 +33,7 @@ namespace YolleybalCompetitie.Controllers
             };
             return View(wedstrijdViewModel);
         }
+    
         public IActionResult Details(int ID)
         {
 
@@ -43,8 +44,15 @@ namespace YolleybalCompetitie.Controllers
             {
                 Sets = Sets,
             };
-            return View(setViewModel);
-        }
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Set", ID);
+            }
+            else
+            {
+                return View(setViewModel);
 
+            }
+        }
     }
 }

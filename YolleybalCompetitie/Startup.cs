@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Core;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace YolleybalCompetitie
 {
@@ -33,12 +34,13 @@ namespace YolleybalCompetitie
             services.AddSingleton<IGebruikerDal, GebruikerDal>();
             services.AddSingleton<ISetDal, SetDal>();
 
-            services.AddAuthentication("CookieAuth")
-             .AddCookie("CookieAuth", config =>
-             {
-                 config.Cookie.Name = "default";
-                
-             });
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.Cookie.Name = ".AspNetCore.Cookies";
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(3);
+                options.SlidingExpiration = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

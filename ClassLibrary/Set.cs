@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.DTO;
 using Core.Enum;
 namespace Core
 {
    public class Set
     {
-        private int ID { get; }
+        public int ID { get;}
         private Wedstrijd wedstrijd { get; }
         public int Aantalset { get; }
         public int Scoreteamthuis { get; private set; }
@@ -14,9 +15,9 @@ namespace Core
         public Team Winaar { get;  }
 
 
-        public Set(Wedstrijd wedstrijd, int aantalset, int Scoreteamthuis, int Scoreteamuit, Team Winaar)
+        public Set(int ID, Wedstrijd wedstrijd, int aantalset, int Scoreteamthuis, int Scoreteamuit, Team Winaar)
         {
-
+            this.ID = ID;
             this.wedstrijd = wedstrijd;
             this.Aantalset = aantalset;
             this.Scoreteamthuis = Scoreteamthuis;
@@ -30,12 +31,28 @@ namespace Core
         readonly ISetDal isetDal;
         public List<Set> GetSetsByWedstrijd(int ID)
         {
-
-            return isetDal.GetSetByWedstrijd(ID);
+            List<Set> sets = new List<Set>();
+            List<SetDTO> setDTOs = isetDal.GetSetByWedstrijd(ID);
+            foreach (SetDTO setDTO in setDTOs)
+            {
+                sets.Add(new Set(setDTO));
+            }
+            return sets;
         }
         public Set(ISetDal IsetDal)
         {
             isetDal = IsetDal;
+        }
+        public Set(SetDTO setDTO)
+        {
+
+            ID = setDTO.ID;
+            wedstrijd = new Wedstrijd(setDTO.wedstrijd);
+            Aantalset = setDTO.Aantalset;
+            Scoreteamthuis = setDTO.Scoreteamthuis;
+            Scoreteamuit = setDTO.Scoreteamuit;
+            Winaar = new Team(setDTO.Winaar);
+
         }
     }
 

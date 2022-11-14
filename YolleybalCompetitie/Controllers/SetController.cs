@@ -31,15 +31,12 @@ namespace YolleybalCompetitie.Controllers
             };
             return View(setViewModel);
         }
-        public IActionResult UpdateSet(int ID, int ScoreThuisTeam, int ScoreUitTeam, Winaar winnaar)
+        public IActionResult UpdateSet(SetViewModel vm)
         {
-
-            Set set = new Set(iSetDal);
-            List<Set> Sets = set.GetSetsByWedstrijd(ID);
 
             SetViewModel setViewModel = new SetViewModel()
             {
-                Sets = Sets,
+               
             };
             return View(setViewModel);
         }  
