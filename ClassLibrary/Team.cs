@@ -8,7 +8,9 @@ namespace Core
 {
     public class Team
     {
+
         private readonly ITeamCollectionDal teamDal;
+        public int ID { get; }
        public string Naam { get; }
 
         private List<Speler> _spelers = new List<Speler>();
@@ -20,11 +22,18 @@ namespace Core
         }
 
         public Competitie Competitie { get; }
-    
+
         public Team(ITeamCollectionDal iteamdal)
         {
 
             teamDal = iteamdal;
+
+        }
+        public Team(int ID, string naam)
+        {
+
+            this.ID = ID;
+            Naam = naam;
 
         }
         public Team(string naam)
@@ -44,10 +53,13 @@ namespace Core
             Naam = teamDTO.Naam;
             if (teamDTO.Competitie != null)
             {
-            Competitie = new Competitie(teamDTO.Competitie);
+                Competitie = new Competitie(teamDTO.Competitie);
 
             }
-
+            if (teamDTO.ID != 0)
+            {
+                ID = teamDTO.ID;
+            }
         }
     }
 }

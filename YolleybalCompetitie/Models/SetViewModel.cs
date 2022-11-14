@@ -12,7 +12,7 @@ namespace YolleybalCompetitie.Models
         public List<Set> Sets { get; set; }
         public int Scoreteamthuis { get; set; }
         public int Scoreteamuit { get; set; }
-        Winaar Winaar { get; set; }
-            
+        public int Winaar { get; set; }
+        public int ID { get; set; }
     }
 }

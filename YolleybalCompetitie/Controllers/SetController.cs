@@ -28,17 +28,16 @@ namespace YolleybalCompetitie.Controllers
             SetViewModel setViewModel = new SetViewModel()
             {
                 Sets = Sets,
+           
             };
             return View(setViewModel);
         }
         public IActionResult UpdateSet(SetViewModel vm)
         {
+            Set set = new Set(iSetDal);
+            int rijenAangepast = set.updateSet(vm.Scoreteamthuis, vm.Scoreteamuit, vm.Winaar, vm.ID);
 
-            SetViewModel setViewModel = new SetViewModel()
-            {
-               
-            };
-            return View(setViewModel);
+            return RedirectToAction("Index", "competitie");
         }  
 
     }

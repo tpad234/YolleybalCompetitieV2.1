@@ -6,7 +6,7 @@ namespace Core.Enum
 {
     public enum Winaar
     {
-        thuisspelend,
-        uitspelend
+        thuisspelend = 1,
+        uitspelend = 2
     }
 }

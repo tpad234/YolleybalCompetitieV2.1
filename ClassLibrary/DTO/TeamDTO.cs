@@ -6,6 +6,7 @@ namespace Core.DTO
 {
     public class TeamDTO
     {
+        public int ID { get; }
         public string Naam { get; }
 
         public CompetitieDTO Competitie { get; }
@@ -19,6 +20,13 @@ namespace Core.DTO
         public TeamDTO(string naam)
         {
             Naam = naam;
+        }
+        public TeamDTO(int ID, String naam)
+        {
+
+            this.ID = ID;
+            Naam = naam;
+
         }
     }
     

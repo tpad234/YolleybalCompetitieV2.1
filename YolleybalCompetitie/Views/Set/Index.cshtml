@@ -24,20 +24,39 @@
 
         @foreach (var set in @Model.Sets)
     {
-        <tr>
-            <td>
-                @set.Aantalset
-            </td>
-            <td>
-                <input id="Scoreteamthuis" name="Scoreteamthuis" type="text" placeholder="@set.Scoreteamthuis">
-            </td>
-            <td>
-                <input id="Scoreteamuit" name="Scoreteamuit" type="text" placeholder="@set.Scoreteamuit">
-            </td>
-            <td>
-                <input id="winaar" name="winaar" type="text" placeholder="@set.Winaar.Naam">
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @set.Aantalset
+        </td>
+        <td>
+            <input id="Scoreteamthuis" name="Scoreteamthuis" type="text" value="@set.Scoreteamthuis" placeholder="@set.Scoreteamthuis">
+        </td>
+        <td>
+            <input id="Scoreteamuit" name="Scoreteamuit" type="text" value="@set.Scoreteamuit" placeholder="@set.Scoreteamuit">
+        </td>
+        @if(set.wedstrijd.Teamthuis.ID == set.Winaar.ID)
+            {
+        <td>
+            <select class="form-control" id="winaar" name="winaar">
+                <option selected value="@set.wedstrijd.Teamthuis.ID">@set.wedstrijd.Teamthuis.Naam</option>
+                <option value="@set.wedstrijd.Teamuit.ID">@set.wedstrijd.Teamuit.Naam</option>
+            </select>
+
+            <input id="ID" name="ID" type="hidden" value="@set.ID">
+        </td>
+            }
+        @if(set.wedstrijd.Teamuit.ID == set.Winaar.ID)
+            {
+        <td>
+            <select class="form-control" id="winaar" name="winaar">
+                <option value="@set.wedstrijd.Teamthuis.ID">@set.wedstrijd.Teamthuis.Naam</option>
+                <option selected value="@set.wedstrijd.Teamuit.ID">@set.wedstrijd.Teamuit.Naam</option>
+            </select>
+
+            <input id="ID" name="ID" type="hidden" value="@set.ID">
+        </td>
+            }
+    </tr>
         <tr>
             <td>
                 <input value="Update" type="submit" ID="UpdateSet" />

@@ -43,7 +43,7 @@ namespace Data
             }
             return result;
         }
-        private static int UpdateDeleteInsert(string query, List<SqlParameter> parameters = null)
+        public static int UpdateDeleteInsert(string query, List<SqlParameter> parameters = null)
         {
             int rowsAffected = 0;
             OpenSqlConnection();

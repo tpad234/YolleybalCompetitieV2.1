@@ -7,8 +7,8 @@ namespace Core
 {
    public class Set
     {
-        public int ID { get;}
-        private Wedstrijd wedstrijd { get; }
+        public int ID { get; }
+        public Wedstrijd wedstrijd { get; }
         public int Aantalset { get; }
         public int Scoreteamthuis { get; private set; }
         public int Scoreteamuit { get; private set; }
@@ -38,6 +38,11 @@ namespace Core
                 sets.Add(new Set(setDTO));
             }
             return sets;
+        }
+        public int updateSet(int ScoreTeamThuis, int ScoreTeamUit, int Winnaar, int ID)
+        {
+            
+            return isetDal.UpdateSet(ScoreTeamThuis, ScoreTeamUit, Winnaar, ID);
         }
         public Set(ISetDal IsetDal)
         {
