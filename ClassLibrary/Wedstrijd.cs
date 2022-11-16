@@ -7,7 +7,8 @@ namespace Core
 {
     public class Wedstrijd
     {
-        readonly IWedstrijdColectionDal IwedstrijdColectionDal;
+        private readonly IWedstrijdColectionDal IwedstrijdColectionDal;
+        readonly ISetDal isetDal;
         public int ID { get; }
         public Team Teamthuis { get; }
         public Team Teamuit { get; }
@@ -44,6 +45,11 @@ namespace Core
             IwedstrijdColectionDal = wedstrijdColectionDal;
         }
 
+        public Wedstrijd(ISetDal setDal)
+        {
+            isetDal = setDal;
+        }
+
         public Wedstrijd(WedstrijdDTO wedstrijdDTO)
         {
 
@@ -53,6 +59,16 @@ namespace Core
             Locatie = wedstrijdDTO.Locatie;
             competitie = new Competitie(wedstrijdDTO.competitie);
 
+        }
+        public List<Set> GetSetsByWedstrijd(int ID)
+        {
+            List<Set> sets = new List<Set>();
+            List<SetDTO> setDTOs = isetDal.GetSetByWedstrijd(ID);
+            foreach (SetDTO setDTO in setDTOs)
+            {
+                sets.Add(new Set(setDTO));
+            }
+            return sets;
         }
 
     }

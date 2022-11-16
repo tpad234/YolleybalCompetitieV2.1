@@ -22,8 +22,8 @@ namespace YolleybalCompetitie.Controllers
         }
         public IActionResult Index(int ID)
         {
-            Set set = new Set(iSetDal);
-            List<Set> Sets = set.GetSetsByWedstrijd(ID);
+            Wedstrijd wedstrijd = new Wedstrijd(iSetDal);
+            List<Set> Sets = wedstrijd.GetSetsByWedstrijd(ID);
 
             SetsViewModel setViewModel = new SetsViewModel()
             {
@@ -37,8 +37,17 @@ namespace YolleybalCompetitie.Controllers
             Set set = new Set(iSetDal);
             //TODO error handling
             int rijenAangepast = set.updateSet(vm.Scoreteamthuis, vm.Scoreteamuit, vm.Winaar, vm.ID);
+            if (rijenAangepast == 0)
+            {
+                string message = "welcome in code solution";
+                return View(message);
 
+            }
+            else
+            {
             return RedirectToAction("Index", "competitie");
+
+            }
         }  
 
     }

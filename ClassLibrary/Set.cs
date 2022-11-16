@@ -15,18 +15,6 @@ namespace Core
         public int Scoreteamuit { get; private set; }
         public Team Winaar { get;  }
 
-
-        //TODO getsetsbywedstrijd verplaatsen
-        public List<Set> GetSetsByWedstrijd(int ID)
-        {
-            List<Set> sets = new List<Set>();
-            List<SetDTO> setDTOs = isetDal.GetSetByWedstrijd(ID);
-            foreach (SetDTO setDTO in setDTOs)
-            {
-                sets.Add(new Set(setDTO));
-            }
-            return sets;
-        }
         public int updateSet(int ScoreTeamThuis, int ScoreTeamUit, int Winnaar, int ID)
         {
             

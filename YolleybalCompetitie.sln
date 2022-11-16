@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreTests", "CoreTests\CoreTests.csproj", "{A06570D8-9053-40BE-8020-9E4B2395DDB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalMock", "DalMock\DalMock.csproj", "{96E21872-E510-417C-A7BF-CAD75A5B1320}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A06570D8-9053-40BE-8020-9E4B2395DDB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A06570D8-9053-40BE-8020-9E4B2395DDB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A06570D8-9053-40BE-8020-9E4B2395DDB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96E21872-E510-417C-A7BF-CAD75A5B1320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96E21872-E510-417C-A7BF-CAD75A5B1320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96E21872-E510-417C-A7BF-CAD75A5B1320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96E21872-E510-417C-A7BF-CAD75A5B1320}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

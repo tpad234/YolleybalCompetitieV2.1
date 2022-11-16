@@ -37,8 +37,8 @@ namespace YolleybalCompetitie.Controllers
         public IActionResult Details(int ID)
         {
 
-            Set set = new Set(iSetDal);
-            List<Set> Sets = set.GetSetsByWedstrijd(ID);
+            Wedstrijd wedstrijd = new Wedstrijd(iSetDal);
+            List<Set> Sets = wedstrijd.GetSetsByWedstrijd(ID);
 
             SetsViewModel setViewModel = new SetsViewModel()
             {

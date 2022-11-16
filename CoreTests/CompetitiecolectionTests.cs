@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Core.DTO;
+using DalMock;
 
 namespace Core.Tests
 {
@@ -24,6 +25,18 @@ namespace Core.Tests
 
 
             Assert.IsTrue(competitiesbasic[0].Naam == competities[0].Naam);
+        }
+
+
+        [TestMethod()]
+        public void TryGetCompetities()
+        {
+            ICompetitiecollectieDal ICompetitiecollectieDal = new MockCompetitieDal();
+            Competitiecolection Competitiecolection = new Competitiecolection(ICompetitiecollectieDal);
+            List<Competitie> Competities = Competitiecolection.GetCompetities();
+
+
+            Assert.IsTrue(Competities.Count == 3);
         }
     }
 }

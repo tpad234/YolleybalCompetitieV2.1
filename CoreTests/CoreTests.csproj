@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary\Core.csproj" />
+    <ProjectReference Include="..\DalMock\DalMock.csproj" />
   </ItemGroup>
 
 </Project>

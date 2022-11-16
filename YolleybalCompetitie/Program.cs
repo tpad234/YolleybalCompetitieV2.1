@@ -22,5 +22,6 @@ namespace YolleybalCompetitie
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }
