@@ -28,19 +28,20 @@ namespace YolleybalCompetitie.Controllers
             SetsViewModel setViewModel = new SetsViewModel()
             {
                 Sets = Sets,
-           
+
             };
             return View(setViewModel);
         }
+        [HttpPost]
         public IActionResult UpdateSet(SetsViewModel vm)
         {
             Set set = new Set(iSetDal);
             //TODO error handling
             int rijenAangepast = set.updateSet(vm.Scoreteamthuis, vm.Scoreteamuit, vm.Winaar, vm.ID);
-            if (rijenAangepast == 0)
+            if (rijenAangepast == 1)
             {
-                string message = "welcome in code solution";
-                return View(message);
+                TempData["message"] = "welcome in code solution";
+                return RedirectToAction("Index", new { ID = vm.ID });
 
             }
             else

@@ -4,10 +4,6 @@
 }
 
 <h1>Details</h1>
-<script src="~/js/site.js" asp-append-version="true"></script>
-@await Component.InvokeAsync("Notyf")
-@RenderSection("Scripts", required: false)
-
 <form method="post" asp-action="UpdateSet">
     <table class="table">
         <tr>
@@ -68,3 +64,8 @@
     }
     </table>
 </form>
+
+@if(TempData["message"] != null)
+{
+    <script>alert(" @TempData["message"] ")</script>
+}
