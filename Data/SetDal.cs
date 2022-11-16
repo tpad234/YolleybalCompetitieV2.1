@@ -10,11 +10,11 @@ namespace Data
 {
     public class SetDal : ISetDal
     {
-        public List<SetDTO> GetSetByWedstrijd(int ID)
+        public List<SetDTO> GetSetByWedstrijd(int WedstrijdID)
         {
             List<SqlParameter> parametersmain = new List<SqlParameter>
             {
-                new SqlParameter("@ID", ID),
+                new SqlParameter("@ID", WedstrijdID),
 
             };
             DataTable dt = DalAlgemeen.Select("SELECT Setinfo.AantalSet, Setinfo.ScoreTeamThuis, Setinfo.ScoreTeamUit, Team.Naam, Team.CompetitieID, SetInfo.WedstrijdID, Wedstrijd.TeamThuis, Wedstrijd.Teamuit, Wedstrijd.locatie, Setinfo.ID, Team.ID FROM SetInfo JOIN Team ON Team.ID=Setinfo.Winnaar JOIN Wedstrijd ON Wedstrijd.ID=Setinfo.WedstrijdID WHERE SetInfo.WedstrijdID = @ID;", parametersmain);
@@ -40,8 +40,8 @@ namespace Data
 
                 CompetitieDTO competitie = new CompetitieDTO(dr.ItemArray[3].ToString());
                 WedstrijdDTO wedstrijd = new WedstrijdDTO(int.Parse(dr.ItemArray[5].ToString()), thuisteam, uitteam, dr.ItemArray[8].ToString(), competitie);
-                TeamDTO team = new TeamDTO(int.Parse(dr.ItemArray[10].ToString()), dr.ItemArray[3].ToString());
-                SetDTO set = new SetDTO(int.Parse(dr.ItemArray[9].ToString()), wedstrijd, int.Parse(dr.ItemArray[0].ToString()), int.Parse(dr.ItemArray[1].ToString()), int.Parse(dr.ItemArray[2].ToString()), team);
+                TeamDTO Winaar = new TeamDTO(int.Parse(dr.ItemArray[10].ToString()), dr.ItemArray[3].ToString());
+                SetDTO set = new SetDTO(int.Parse(dr.ItemArray[9].ToString()), wedstrijd, int.Parse(dr.ItemArray[0].ToString()), int.Parse(dr.ItemArray[1].ToString()), int.Parse(dr.ItemArray[2].ToString()), Winaar);
                 Sets.Add(set);
             }
             return Sets;

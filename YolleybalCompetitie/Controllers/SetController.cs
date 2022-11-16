@@ -25,16 +25,17 @@ namespace YolleybalCompetitie.Controllers
             Set set = new Set(iSetDal);
             List<Set> Sets = set.GetSetsByWedstrijd(ID);
 
-            SetViewModel setViewModel = new SetViewModel()
+            SetsViewModel setViewModel = new SetsViewModel()
             {
                 Sets = Sets,
            
             };
             return View(setViewModel);
         }
-        public IActionResult UpdateSet(SetViewModel vm)
+        public IActionResult UpdateSet(SetsViewModel vm)
         {
             Set set = new Set(iSetDal);
+            //TODO error handling
             int rijenAangepast = set.updateSet(vm.Scoreteamthuis, vm.Scoreteamuit, vm.Winaar, vm.ID);
 
             return RedirectToAction("Index", "competitie");

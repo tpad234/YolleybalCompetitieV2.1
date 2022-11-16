@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace YolleybalCompetitie.Models
 {
-    public class SetViewModel
+    public class SetsViewModel
     {
         public List<Set> Sets { get; set; }
         public int Scoreteamthuis { get; set; }

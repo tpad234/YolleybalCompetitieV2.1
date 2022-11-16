@@ -7,6 +7,7 @@ namespace Core
 {
    public class Set
     {
+        readonly ISetDal isetDal;
         public int ID { get; }
         public Wedstrijd wedstrijd { get; }
         public int Aantalset { get; }
@@ -15,20 +16,7 @@ namespace Core
         public Team Winaar { get;  }
 
 
-        public Set(int ID, Wedstrijd wedstrijd, int aantalset, int Scoreteamthuis, int Scoreteamuit, Team Winaar)
-        {
-            this.ID = ID;
-            this.wedstrijd = wedstrijd;
-            this.Aantalset = aantalset;
-            this.Scoreteamthuis = Scoreteamthuis;
-            this.Scoreteamuit = Scoreteamuit;
-            this.Winaar = Winaar;
-            
-
-
-        }
-
-        readonly ISetDal isetDal;
+        //TODO getsetsbywedstrijd verplaatsen
         public List<Set> GetSetsByWedstrijd(int ID)
         {
             List<Set> sets = new List<Set>();

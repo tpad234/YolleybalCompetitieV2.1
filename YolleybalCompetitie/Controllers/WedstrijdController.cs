@@ -40,7 +40,7 @@ namespace YolleybalCompetitie.Controllers
             Set set = new Set(iSetDal);
             List<Set> Sets = set.GetSetsByWedstrijd(ID);
 
-            SetViewModel setViewModel = new SetViewModel()
+            SetsViewModel setViewModel = new SetsViewModel()
             {
                 Sets = Sets,
             };
