@@ -46,7 +46,7 @@ namespace YolleybalCompetitie.Controllers
             };
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Set", new { ID = ID });
+                return RedirectToAction("Index", "Set", new { ID });
             }
             else
             {

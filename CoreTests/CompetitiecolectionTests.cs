@@ -29,14 +29,27 @@ namespace Core.Tests
 
 
         [TestMethod()]
-        public void TryGetCompetities()
+        public void TryGetCompetitiesBYCount()
         {
             ICompetitiecollectieDal ICompetitiecollectieDal = new MockCompetitieDal();
             Competitiecolection Competitiecolection = new Competitiecolection(ICompetitiecollectieDal);
+
             List<Competitie> Competities = Competitiecolection.GetCompetities();
 
 
             Assert.IsTrue(Competities.Count == 3);
         }
-    }
+
+        [TestMethod()]
+        public void TryGetCompetitiesByName()
+        {
+            ICompetitiecollectieDal ICompetitiecollectieDal = new MockCompetitieDal();
+            Competitiecolection Competitiecolection = new Competitiecolection(ICompetitiecollectieDal);
+
+            List<Competitie> Competities = Competitiecolection.GetCompetities();
+
+
+            Assert.IsTrue(Competities[0].Naam == "test1" && Competities[1].Naam == "test2" && Competities[2].Naam == "test3");
+        }
+    } 
 }

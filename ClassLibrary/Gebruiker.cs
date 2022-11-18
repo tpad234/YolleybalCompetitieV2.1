@@ -9,9 +9,9 @@ namespace Core
     {
         readonly IGebruikerDal IgebruikerDal;
         string Naam { get; }
-        string Email { get; }
+         string Email { get; }
         string Wachtwoord { get; }
-        Rol Rol { get; }
+         Rol Rol { get; }
 
 
         public Gebruiker(string Naam, String Email, string wachtwoord, Rol Rol)

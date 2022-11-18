@@ -37,19 +37,29 @@ namespace YolleybalCompetitie.Controllers
         {
             Set set = new Set(iSetDal);
             //TODO error handling
-            int rijenAangepast = set.updateSet(vm.Scoreteamthuis, vm.Scoreteamuit, vm.Winaar, vm.ID);
-            if (rijenAangepast == 1)
+            if ((vm.Scoreteamthuis > 25 && vm.Scoreteamuit >=25) || (vm.Scoreteamuit > 25 && vm.Scoreteamthuis >=25) || (vm.Scoreteamthuis == 25 && vm.Scoreteamuit < 25) || (vm.Scoreteamuit == 25 && vm.Scoreteamthuis < 25))
             {
-                TempData["message"] = "welcome in code solution";
-                return RedirectToAction("Index", new { ID = vm.ID });
 
+                int rijenAangepast = set.updateSet(vm.Scoreteamthuis, vm.Scoreteamuit, vm.Winaar, vm.ID);
+                if (rijenAangepast == 2 && rijenAangepast == 0)
+                {
+                    TempData["message"] = "er is iets fout gegaan ";
+                    return RedirectToAction("Index", new { vm.ID });
+
+                }
+                else
+                {
+                    return RedirectToAction("Index", "competitie");
+
+                }
             }
             else
             {
-            return RedirectToAction("Index", "competitie");
-
+                TempData["message"] = "er iets iets fout gegaan check de ingevulde data nog een x";
+                return RedirectToAction("Index", new { vm.ID });
             }
-        }  
+
+        }
 
     }
 }
