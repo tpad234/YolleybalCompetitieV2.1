@@ -29,11 +29,11 @@ namespace YolleybalCompetitie.Controllers
         {
 
             Gebruiker gebruiker = new Gebruiker(IgebruikerDal);
-            if (gebruiker.CheckInlog(vm.gebruikersnaam, vm.Wachtwoord))
+            if (gebruiker.CheckInlog(vm.Gebruikersnaam, vm.Wachtwoord))
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, vm.gebruikersnaam)
+                    new Claim(ClaimTypes.Name, vm.Gebruikersnaam)
                 };
                 var claimsIdentity = new ClaimsIdentity(claims, "Login");
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));

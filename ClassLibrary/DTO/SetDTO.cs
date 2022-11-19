@@ -7,7 +7,7 @@ namespace Core.DTO
     public class SetDTO
     {
         public int ID { get; }
-        public WedstrijdDTO wedstrijd { get; }
+        public WedstrijdDTO Wedstrijd { get; }
         public int Aantalset { get; }
         public int Scoreteamthuis { get; private set; }
         public int Scoreteamuit { get; private set; }
@@ -16,7 +16,7 @@ namespace Core.DTO
         public SetDTO(int ID, WedstrijdDTO wedstrijd, int aantalset, int Scoreteamthuis, int Scoreteamuit, TeamDTO Winaar)
         {
             this.ID = ID;
-            this.wedstrijd = wedstrijd;
+            this.Wedstrijd = wedstrijd;
             this.Aantalset = aantalset;
             this.Scoreteamthuis = Scoreteamthuis;
             this.Scoreteamuit = Scoreteamuit;

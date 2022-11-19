@@ -8,7 +8,7 @@ namespace YolleybalCompetitie.Models
 {
     public class GebruikerViewModel
     {
-     public string gebruikersnaam { get; set; }
+     public string Gebruikersnaam { get; set; }
      public string Wachtwoord { get; set; }
     }
 }

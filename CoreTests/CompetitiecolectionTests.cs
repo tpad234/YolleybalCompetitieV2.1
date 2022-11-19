@@ -17,11 +17,14 @@ namespace Core.Tests
             List<CompetitieDTO> competitieDTOs = new List<CompetitieDTO>();
             CompetitieDTO competitieDTO = new CompetitieDTO("test1");
             competitieDTOs.Add(competitieDTO);
-            List<Competitie> competitiesbasic = new List<Competitie>();
-            competitiesbasic.Add(new Competitie("test1"));
-            List<Competitie> competities = new List<Competitie>();
-
-            competities.Add(new Competitie(competitieDTO));
+            List<Competitie> competitiesbasic = new List<Competitie>
+            {
+                new Competitie("test1")
+            };
+            List<Competitie> competities = new List<Competitie>
+            {
+                new Competitie(competitieDTO)
+            };
 
 
             Assert.IsTrue(competitiesbasic[0].Naam == competities[0].Naam);
@@ -29,7 +32,7 @@ namespace Core.Tests
 
 
         [TestMethod()]
-        public void TryGetCompetitiesBYCount()
+        public void TryGetCompetitiesCheckBYCount()
         {
             ICompetitiecollectieDal ICompetitiecollectieDal = new MockCompetitieDal();
             Competitiecolection Competitiecolection = new Competitiecolection(ICompetitiecollectieDal);
@@ -41,7 +44,7 @@ namespace Core.Tests
         }
 
         [TestMethod()]
-        public void TryGetCompetitiesByName()
+        public void TryGetCompetitiesCheckByName()
         {
             ICompetitiecollectieDal ICompetitiecollectieDal = new MockCompetitieDal();
             Competitiecolection Competitiecolection = new Competitiecolection(ICompetitiecollectieDal);

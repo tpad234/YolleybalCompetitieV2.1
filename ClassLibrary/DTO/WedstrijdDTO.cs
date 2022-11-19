@@ -11,7 +11,7 @@ namespace Core.DTO
         public TeamDTO Teamuit { get; set; }
         public string Locatie { get; set; }
 
-        public CompetitieDTO competitie { get; set; }
+        public CompetitieDTO Competitie { get; set; }
 
         public List<Set> Sets { get; set; }
 
@@ -22,7 +22,7 @@ namespace Core.DTO
             this.Teamthuis = Teamthuis;
             this.Teamuit = Teamuit;
             this.Locatie = locatie;
-            this.competitie = competitie;
+            this.Competitie = competitie;
 
         }
 

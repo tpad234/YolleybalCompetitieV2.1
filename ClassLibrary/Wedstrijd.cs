@@ -14,7 +14,7 @@ namespace Core
         public Team Teamuit { get; }
         public string Locatie { get; }
 
-        public Competitie competitie { get; }
+        public Competitie Competitie { get; }
         private List<Set> _sets = new List<Set>();
 
         public List<Set> Sets
@@ -29,7 +29,7 @@ namespace Core
             this.Teamthuis = Teamthuis;
             this.Teamuit = Teamuit;
             this.Locatie = Locatie;
-            this.competitie = competitie;
+            this.Competitie = competitie;
 
         }
         public Wedstrijd(int ID, Team Teamthuis, Team Teamuit, Competitie competitie)
@@ -37,7 +37,7 @@ namespace Core
             this.ID = ID;
             this.Teamthuis = Teamthuis;
             this.Teamuit = Teamuit;
-            this.competitie = competitie;
+            this.Competitie = competitie;
 
         }
         public Wedstrijd(IWedstrijdColectionDal wedstrijdColectionDal)
@@ -57,7 +57,7 @@ namespace Core
             Teamthuis = new Team(wedstrijdDTO.Teamthuis);
             Teamuit = new Team(wedstrijdDTO.Teamuit);
             Locatie = wedstrijdDTO.Locatie;
-            competitie = new Competitie(wedstrijdDTO.competitie);
+            Competitie = new Competitie(wedstrijdDTO.Competitie);
 
         }
         public List<Set> GetSetsByWedstrijd(int ID)

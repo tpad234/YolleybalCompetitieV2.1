@@ -11,11 +11,13 @@ namespace DalMock
 
             public List<CompetitieDTO> GetCompetities()
             {
-                
-                List<CompetitieDTO> Competities = new List<CompetitieDTO>();
-            Competities.Add( new CompetitieDTO("test1"));
-            Competities.Add(new CompetitieDTO("test2"));
-            Competities.Add(new CompetitieDTO("test3"));
+
+            List<CompetitieDTO> Competities = new List<CompetitieDTO>
+            {
+                new CompetitieDTO("test1"),
+                new CompetitieDTO("test2"),
+                new CompetitieDTO("test3")
+            };
 
 
             return Competities;

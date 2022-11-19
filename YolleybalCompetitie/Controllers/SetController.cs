@@ -37,10 +37,8 @@ namespace YolleybalCompetitie.Controllers
         {
             Set set = new Set(iSetDal);
             //TODO error handling
-            if ((vm.Scoreteamthuis > 25 && vm.Scoreteamuit >=25) || (vm.Scoreteamuit > 25 && vm.Scoreteamthuis >=25) || (vm.Scoreteamthuis == 25 && vm.Scoreteamuit < 25) || (vm.Scoreteamuit == 25 && vm.Scoreteamthuis < 25))
-            {
-
-                int rijenAangepast = set.updateSet(vm.Scoreteamthuis, vm.Scoreteamuit, vm.Winaar, vm.ID);
+         
+                int rijenAangepast = set.UpdateSet(vm.Scoreteamthuis, vm.Scoreteamuit, vm.Winaar, vm.ID);
                 if (rijenAangepast == 2 && rijenAangepast == 0)
                 {
                     TempData["message"] = "er is iets fout gegaan ";
@@ -51,13 +49,7 @@ namespace YolleybalCompetitie.Controllers
                 {
                     return RedirectToAction("Index", "competitie");
 
-                }
-            }
-            else
-            {
-                TempData["message"] = "er iets iets fout gegaan check de ingevulde data nog een x";
-                return RedirectToAction("Index", new { vm.ID });
-            }
+                } 
 
         }
 
