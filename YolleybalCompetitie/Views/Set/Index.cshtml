@@ -2,70 +2,69 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<body>
 <h1>Details</h1>
-<form method="post" asp-action="UpdateSet">
-    <table class="table">
-        <tr>
-            <th>
-                set
-            </th>
-            <th>
-                score thuisteam
-            </th>
-            <th>
-                score uitteam
-            </th>
-            <th>
-                winnaar
-            </th>
-        </tr>
+<table class="table">
+    <tr>
+        <th>
+            set
+        </th>
+        <th>
+            score thuisteam
+        </th>
+        <th>
+            score uitteam
+        </th>
+        <th>
+            winnaar
+        </th>
+    </tr>
 
-        @foreach (var set in @Model.Sets)
+    @foreach (var set in @Model.Sets)
     {
-        <tr>
-            <td>
-                @set.Aantalset
-            </td>
-            <td>
-                <input id="Scoreteamthuis" name="Scoreteamthuis" type="text" value="@set.Scoreteamthuis" placeholder="@set.Scoreteamthuis">
-            </td>
-            <td>
-                <input id="Scoreteamuit" name="Scoreteamuit" type="text" value="@set.Scoreteamuit" placeholder="@set.Scoreteamuit">
-            </td>
-            @if(set.wedstrijd.Teamthuis.ID == set.Winaar.ID)
+    <tr>
+        <td>
+            @set.Aantalset
+        </td>
+        <td>
+            <label id="Scoreteamthuis" name="Scoreteamthuis" type="text" value="@set.Scoreteamthuis" placeholder="@set.Scoreteamthuis"> </label>
+        </td>
+        <td>
+            <label id="Scoreteamuit" name="Scoreteamuit" type="text" value="@set.Scoreteamuit" placeholder="@set.Scoreteamuit"> </label>
+        </td>
+        @if(set.Wedstrijd.Teamthuis.ID == set.Winaar.ID)
             {
-            <td>
-                <select class="form-control" id="winaar" name="winaar">
-                    <option selected value="@set.wedstrijd.Teamthuis.ID">@set.wedstrijd.Teamthuis.Naam</option>
-                    <option value="@set.wedstrijd.Teamuit.ID">@set.wedstrijd.Teamuit.Naam</option>
-                </select>
+        <td>
+            <select class="form-control" id="winaar" name="winaar">
+                <option selected value="@set.Wedstrijd.Teamthuis.ID">@set.Wedstrijd.Teamthuis.Naam</option>
+                <option value="@set.Wedstrijd.Teamuit.ID">@set.Wedstrijd.Teamuit.Naam</option>
+            </select>
 
-                <input id="ID" name="ID" type="hidden" value="@set.ID">
-            </td>
+            <input id="ID" name="ID" type="hidden" value="@set.ID">
+        </td>
             }
-            @if(set.wedstrijd.Teamuit.ID == set.Winaar.ID)
+        @if(set.Wedstrijd.Teamuit.ID == set.Winaar.ID)
             {
-            <td>
-                <select class="form-control" id="winaar" name="winaar">
-                    <option value="@set.wedstrijd.Teamthuis.ID">@set.wedstrijd.Teamthuis.Naam</option>
-                    <option selected value="@set.wedstrijd.Teamuit.ID">@set.wedstrijd.Teamuit.Naam</option>
-                </select>
+        <td>
+            <select class="form-control" id="winaar" name="winaar">
+                <option value="@set.Wedstrijd.Teamthuis.ID">@set.Wedstrijd.Teamthuis.Naam</option>
+                <option selected value="@set.Wedstrijd.Teamuit.ID">@set.Wedstrijd.Teamuit.Naam</option>
+            </select>
 
-                <input id="ID" name="ID" type="hidden" value="@set.ID">
-            </td>
+            <input id="ID" name="ID" type="hidden" value="@set.ID">
+        </td>
             }
-        </tr>
-        <tr>
-            <td>
-                <input value="Update" type="submit" ID="UpdateSet" />
-            </td>
-        </tr>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Aanpassen", "DetailsSet", new { SetID = set.ID}) |
+        </td>
+    </tr>
     }
-    </table>
-</form>
+</table>
+</body>
 
 @if(TempData["message"] != null)
 {
-    <script>alert(" @TempData["message"] ")</script>
+<script>alert(" @TempData["message"] ")</script>
 }

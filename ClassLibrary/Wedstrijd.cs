@@ -70,6 +70,15 @@ namespace Core
             }
             return sets;
         }
-
+        public List<Set> GetSetByID(int ID)
+        {
+            List<Set> sets = new List<Set>();
+            List<SetDTO> setDTOs = isetDal.GetSetByID(ID);
+            foreach (SetDTO setDTO in setDTOs)
+            {
+                sets.Add(new Set(setDTO));
+            }
+            return sets;
+        }
     }
 }

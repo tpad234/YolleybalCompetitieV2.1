@@ -32,24 +32,48 @@ namespace YolleybalCompetitie.Controllers
             };
             return View(setViewModel);
         }
+        public IActionResult DetailsSet(int SetID)
+        {
+            SetViewModel setViewModel = new SetViewModel();
+            Wedstrijd wedstrijd = new Wedstrijd(iSetDal);
+            List<Set> Sets = wedstrijd.GetSetByID(SetID);
+            if (Sets.Count == 1)
+            {
+
+            //TODO error handling
+            foreach (Set set1 in Sets)
+            {
+                if (set1.ID == SetID)
+                {
+                    setViewModel.Set = set1;
+
+                }
+            }
+            }
+            return View("Update", setViewModel);
+
+
+
+
+        }
         [HttpPost]
-        public IActionResult UpdateSet(SetsViewModel vm)
+        public IActionResult UpdateSet(SetViewModel vm)
         {
             Set set = new Set(iSetDal);
             //TODO error handling
-         
-                int rijenAangepast = set.UpdateSet(vm.Scoreteamthuis, vm.Scoreteamuit, vm.Winaar, vm.ID);
-                if (rijenAangepast == 2 && rijenAangepast == 0)
-                {
-                    TempData["message"] = "er is iets fout gegaan ";
-                    return RedirectToAction("Index", new { vm.ID });
 
-                }
-                else
-                {
-                    return RedirectToAction("Index", "competitie");
+            int rijenAangepast = set.UpdateSet(vm.Scoreteamthuis, vm.Scoreteamuit, vm.Winaar, vm.ID);
+            if (rijenAangepast == 2 || rijenAangepast == 0)
+            {
+                TempData["message"] = "er is iets fout gegaan ";
+                return RedirectToAction("Index", new { vm.ID });
 
-                } 
+            }
+            else
+            {
+                return RedirectToAction("Index", "competitie");
+
+            }
 
         }
 

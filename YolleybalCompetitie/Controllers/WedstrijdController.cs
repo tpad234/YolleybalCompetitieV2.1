@@ -39,17 +39,16 @@ namespace YolleybalCompetitie.Controllers
 
             Wedstrijd wedstrijd = new Wedstrijd(iSetDal);
             List<Set> Sets = wedstrijd.GetSetsByWedstrijd(ID);
-
-            SetsViewModel setViewModel = new SetsViewModel()
-            {
-                Sets = Sets,
-            };
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Set", new { ID });
             }
             else
             {
+                SetsViewModel setViewModel = new SetsViewModel()
+                {
+                    Sets = Sets,
+                };
                 return View(setViewModel);
 
             }

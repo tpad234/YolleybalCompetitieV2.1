@@ -1,0 +1,68 @@
+﻿
+@model SetViewModel
+@{
+    ViewData["Title"] = "Update";
+}
+<h1>Details</h1>
+<form method="post" asp-action="UpdateSet">
+    <table class="table">
+        <tr>
+            <th>
+                set
+            </th>
+            <th>
+                score thuisteam
+            </th>
+            <th>
+                score uitteam
+            </th>
+            <th>
+                winnaar
+            </th>
+        </tr>
+            <tr>
+                <td>
+                    @Model.Set.Aantalset
+                </td>
+                <td>
+                    <input id="Scoreteamthuis" name="Scoreteamthuis" type="text" value="@Model.Set.Scoreteamthuis" placeholder="@Model.Set.Scoreteamthuis">
+                </td>
+                <td>
+                    <input id="Scoreteamuit" name="Scoreteamuit" type="text" value="@Model.Set.Scoreteamuit" placeholder="@Model.Set.Scoreteamuit">
+                </td>
+                @if (Model.Set.Wedstrijd.Teamthuis.ID == Model.Set.Winaar.ID)
+                {
+                    <td>
+                        <select class="form-control" id="winaar" name="winaar">
+                            <option selected value="@Model.Set.Wedstrijd.Teamthuis.ID">@Model.Set.Wedstrijd.Teamthuis.Naam</option>
+                            <option value="@Model.Set.Wedstrijd.Teamuit.ID">@Model.Set.Wedstrijd.Teamuit.Naam</option>
+                        </select>
+
+                        <input id="ID" name="ID" type="hidden" value="@Model.Set.ID">
+                    </td>
+                }
+                @if (Model.Set.Wedstrijd.Teamuit.ID == Model.Set.Winaar.ID)
+                {
+                    <td>
+                        <select class="form-control" id="winaar" name="winaar">
+                            <option value="@Model.Set.Wedstrijd.Teamthuis.ID">@Model.Set.Wedstrijd.Teamthuis.Naam</option>
+                            <option selected value="@Model.Set.Wedstrijd.Teamuit.ID">@Model.Set.Wedstrijd.Teamuit.Naam</option>
+                        </select>
+
+                        <input id="ID" name="ID" type="hidden" value="@Model.Set.ID">
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    <input value="Update" type="submit" ID="UpdateSet" />
+                </td>
+            </tr>
+        }
+    </table>
+</form>
+
+@if (TempData["message"] != null)
+{
+    <script>alert(" @TempData["message"] ")</script>
+}
