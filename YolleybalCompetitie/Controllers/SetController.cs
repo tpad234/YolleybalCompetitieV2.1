@@ -40,21 +40,17 @@ namespace YolleybalCompetitie.Controllers
             if (Sets.Count == 1)
             {
 
-            //TODO error handling
-            foreach (Set set1 in Sets)
-            {
-                if (set1.ID == SetID)
+                //TODO error handling
+                foreach (Set set1 in Sets)
                 {
-                    setViewModel.Set = set1;
+                    if (set1.ID == SetID)
+                    {
+                        setViewModel.Set = set1;
 
+                    }
                 }
             }
-            }
-            return View("Update", setViewModel);
-
-
-
-
+                return View("Update", setViewModel);
         }
         [HttpPost]
         public IActionResult UpdateSet(SetViewModel vm)
@@ -66,12 +62,12 @@ namespace YolleybalCompetitie.Controllers
             if (rijenAangepast == 2 || rijenAangepast == 0)
             {
                 TempData["message"] = "er is iets fout gegaan ";
-                return RedirectToAction("Index", new { vm.ID });
+                return RedirectToAction("index", new { vm.ID });
 
             }
             else
             {
-                return RedirectToAction("Index", "competitie");
+                return RedirectToAction("index", new { vm.ID });
 
             }
 

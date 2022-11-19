@@ -27,31 +27,22 @@
             @set.Aantalset
         </td>
         <td>
-            <label id="Scoreteamthuis" name="Scoreteamthuis" type="text" value="@set.Scoreteamthuis" placeholder="@set.Scoreteamthuis"> </label>
+            @set.Scoreteamthuis
         </td>
         <td>
-            <label id="Scoreteamuit" name="Scoreteamuit" type="text" value="@set.Scoreteamuit" placeholder="@set.Scoreteamuit"> </label>
+            @set.Scoreteamuit
         </td>
         @if(set.Wedstrijd.Teamthuis.ID == set.Winaar.ID)
             {
         <td>
-            <select class="form-control" id="winaar" name="winaar">
-                <option selected value="@set.Wedstrijd.Teamthuis.ID">@set.Wedstrijd.Teamthuis.Naam</option>
-                <option value="@set.Wedstrijd.Teamuit.ID">@set.Wedstrijd.Teamuit.Naam</option>
-            </select>
-
-            <input id="ID" name="ID" type="hidden" value="@set.ID">
+            @set.Wedstrijd.Teamthuis.Naam
+            
         </td>
             }
         @if(set.Wedstrijd.Teamuit.ID == set.Winaar.ID)
             {
-        <td>
-            <select class="form-control" id="winaar" name="winaar">
-                <option value="@set.Wedstrijd.Teamthuis.ID">@set.Wedstrijd.Teamthuis.Naam</option>
-                <option selected value="@set.Wedstrijd.Teamuit.ID">@set.Wedstrijd.Teamuit.Naam</option>
-            </select>
-
-            <input id="ID" name="ID" type="hidden" value="@set.ID">
+        <td>      
+              @set.Wedstrijd.Teamuit.Naam
         </td>
             }
     </tr>
