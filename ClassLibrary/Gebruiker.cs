@@ -13,17 +13,6 @@ namespace Core
         string Wachtwoord { get; }
         private Rol Rol { get; }
 
-
-        public Gebruiker(string Naam, String Email, string wachtwoord, Rol Rol)
-        {
-
-            this.Naam = Naam;
-            this.Email = Email;
-            this.Wachtwoord = wachtwoord;
-            this.Rol = Rol;
-
-
-        }
         public Gebruiker(IGebruikerDal gebruikerDal)
         {
             IgebruikerDal = gebruikerDal;

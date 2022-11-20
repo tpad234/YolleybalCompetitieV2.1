@@ -29,25 +29,6 @@ namespace Core
             teamDal = iteamdal;
 
         }
-        public Team(int ID, string naam)
-        {
-
-            this.ID = ID;
-            Naam = naam;
-
-        }
-        public Team(string naam)
-        {
-
-            Naam = naam;
-        }
-        public Team(string naam, Competitie competitie)
-        {
-
-            Naam = naam;
-            Competitie = competitie;
-
-        }
         public Team(TeamDTO teamDTO)
         {
             Naam = teamDTO.Naam;

@@ -13,19 +13,7 @@ namespace Core
        public int Leeftijd { get; }
        public string Woonplaats { get; }
         public Team Team { get; }
-
-
-        public Speler(string voornaam, string achternaam, int leeftijd, string woonplaats, Team Team)
-        {
-
-            this.Voornaam = voornaam;
-            this.Achternaam = achternaam;
-            this.Leeftijd = leeftijd;
-            this.Woonplaats = woonplaats;
-            this.Team = Team;
-
-
-        }
+  
         public Speler( SpelerDTO speler)
         {
             Voornaam = speler.Voornaam;
