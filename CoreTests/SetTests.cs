@@ -50,7 +50,7 @@ namespace Core.Tests
         }
 
         [TestMethod()]
-        public void TryUpdateSetTyeScore()
+        public void TryUpdateSetTryeScore0rows()
         {
             ISetDal isetDal = new MockSetDal();
             Set set = new Set(isetDal);

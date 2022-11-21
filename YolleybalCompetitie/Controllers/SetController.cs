@@ -59,7 +59,7 @@ namespace YolleybalCompetitie.Controllers
             //TODO error handling
 
             int rijenAangepast = set.UpdateSet(vm.Scoreteamthuis, vm.Scoreteamuit, vm.Winaar, vm.ID);
-            if (rijenAangepast == 2 || rijenAangepast == 0)
+            if (rijenAangepast != 1)
             {
                 TempData["message"] = "er is iets fout gegaan ";
                 return RedirectToAction("index", new { vm.ID });

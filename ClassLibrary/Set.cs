@@ -15,9 +15,38 @@ namespace Core
         public int Scoreteamuit { get; private set; }
         public Team Winaar { get;  }
 
+        private bool ScoreNotToHigh(int ScoreTeamThuis, int ScoreTeamUit)
+        {
+            if ((ScoreTeamThuis > 25 && ScoreTeamUit >= 25) ||
+                 (ScoreTeamUit > 25 && ScoreTeamThuis >= 25))
+            {
+                return true;
+
+            }
+            else
+            {
+
+                return false;
+            }
+        }
+        private bool ScoreToLow(int ScoreTeamThuis, int ScoreTeamUit)
+        {
+            if((ScoreTeamThuis == 25 && ScoreTeamUit < 25) ||
+                (ScoreTeamUit == 25 && ScoreTeamThuis < 25))
+            {
+                return true;
+
+            }
+            else
+            {
+
+                return false;
+            }
+    }
+
         public int UpdateSet(int ScoreTeamThuis, int ScoreTeamUit, int WinnaarID, int ID)
         {
-            if ((ScoreTeamThuis > 25 && ScoreTeamUit >= 25) || (ScoreTeamUit > 25 && ScoreTeamThuis >= 25) || (ScoreTeamThuis == 25 && ScoreTeamUit < 25) || (ScoreTeamUit == 25 && ScoreTeamThuis < 25))
+            if (ScoreNotToHigh(ScoreTeamThuis, ScoreTeamUit) || ScoreToLow(ScoreTeamThuis, ScoreTeamUit))
             {
 
                 return isetDal.UpdateSet(ScoreTeamThuis, ScoreTeamUit, WinnaarID, ID);
