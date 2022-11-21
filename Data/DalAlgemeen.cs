@@ -76,9 +76,12 @@ namespace Data
         {
 
 
+            if (_conn.State == ConnectionState.Closed)
+            {
 
             _conn.Open();
 
+            }
             Console.WriteLine("State: {0}", _conn.State);
             Console.WriteLine("ConnectionString: {0}", _conn.ConnectionString);
 
@@ -87,7 +90,13 @@ namespace Data
         {
 
 
-            _conn.Close();
+
+            if (_conn.State == ConnectionState.Open)
+            {
+
+                _conn.Close();
+
+            }
             Console.WriteLine("State: {0}", _conn.State);
             Console.WriteLine("ConnectionString: {0}", _conn.ConnectionString);
 

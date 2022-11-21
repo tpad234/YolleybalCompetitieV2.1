@@ -63,7 +63,7 @@ namespace Core.Tests
         }
 
         [TestMethod()]
-        public void TryUpdateSetTyeScoreToLow()
+        public void TryUpdateSetTryeScoreToLow()
         {
             ISetDal isetDal = new MockSetDal();
             Set set = new Set(isetDal);
@@ -76,12 +76,12 @@ namespace Core.Tests
         }
 
         [TestMethod()]
-        public void TryUpdateSetTyeScoreTohigh()
+        public void TryUpdateSetTryeScoreTohigh()
         {
             ISetDal isetDal = new MockSetDal();
             Set set = new Set(isetDal);
 
-            int rowsafected = set.UpdateSet(22, 22, 1, 1);
+            int rowsafected = set.UpdateSet(27, 22, 1, 1);
 
 
             Assert.IsTrue(rowsafected == 0);
