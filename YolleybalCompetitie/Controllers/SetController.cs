@@ -20,17 +20,17 @@ namespace YolleybalCompetitie.Controllers
         {
             iSetDal = isetDal;
         }
-        public IActionResult Index(int ID)
+        public IActionResult Index(int WedstrijdID)
         {
             Wedstrijd wedstrijd = new Wedstrijd(iSetDal);
-            List<Set> Sets = wedstrijd.GetSetsByWedstrijd(ID);
+            List<Set> Sets = wedstrijd.GetSetsByWedstrijd(WedstrijdID);
 
-            SetsViewModel setViewModel = new SetsViewModel()
+            SetsViewModel setsViewModel = new SetsViewModel()
             {
                 Sets = Sets,
 
             };
-            return View(setViewModel);
+            return View(setsViewModel);
         }
         public IActionResult DetailsSet(int SetID)
         {
@@ -62,12 +62,12 @@ namespace YolleybalCompetitie.Controllers
             if (rijenAangepast != 1)
             {
                 TempData["message"] = "er is iets fout gegaan ";
-                return RedirectToAction("index", new { vm.ID });
+                return RedirectToAction("index", new { vm.WedstrijdID });
 
             }
             else
             {
-                return RedirectToAction("index", new { vm.ID });
+                return RedirectToAction("index", new { vm.WedstrijdID});
 
             }
 

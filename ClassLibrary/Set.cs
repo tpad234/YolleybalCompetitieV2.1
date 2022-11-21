@@ -44,12 +44,12 @@ namespace Core
             }
     }
 
-        public int UpdateSet(int ScoreTeamThuis, int ScoreTeamUit, int WinnaarID, int ID)
+        public int UpdateSet(int ScoreTeamThuis, int ScoreTeamUit, int WinnaarID, int SetID)
         {
             if (ScoreNotToHigh(ScoreTeamThuis, ScoreTeamUit) || ScoreToLow(ScoreTeamThuis, ScoreTeamUit))
             {
 
-                return isetDal.UpdateSet(ScoreTeamThuis, ScoreTeamUit, WinnaarID, ID);
+                return isetDal.UpdateSet(ScoreTeamThuis, ScoreTeamUit, WinnaarID, SetID);
 
             }
             else

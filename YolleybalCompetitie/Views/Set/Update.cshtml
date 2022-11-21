@@ -8,16 +8,16 @@
     <table class="table">
         <tr>
             <th>
-                set
+                Set
             </th>
             <th>
-               score @Model.Set.Wedstrijd.Teamthuis.Naam
+               Score @Model.Set.Wedstrijd.Teamthuis.Naam
             </th>
             <th>
-               score @Model.Set.Wedstrijd.Teamuit.Naam
+               Score @Model.Set.Wedstrijd.Teamuit.Naam
             </th>
             <th>
-                winnaar
+                Winnaar
             </th>
         </tr>
             <tr>
@@ -32,14 +32,16 @@
                 </td>
                 @if (Model.Set.Wedstrijd.Teamthuis.ID == Model.Set.Winaar.ID)
                 {
-                    <td>
-                        <select class="form-control" id="winaar" name="winaar">
-                            <option selected value="@Model.Set.Wedstrijd.Teamthuis.ID">@Model.Set.Wedstrijd.Teamthuis.Naam</option>
-                            <option value="@Model.Set.Wedstrijd.Teamuit.ID">@Model.Set.Wedstrijd.Teamuit.Naam</option>
-                        </select>
+            <td>
+                <select class="form-control" id="winaar" name="winaar">
+                    <option selected value="@Model.Set.Wedstrijd.Teamthuis.ID">@Model.Set.Wedstrijd.Teamthuis.Naam</option>
+                    <option value="@Model.Set.Wedstrijd.Teamuit.ID">@Model.Set.Wedstrijd.Teamuit.Naam</option>
+                </select>
 
-                        <input id="ID" name="ID" type="hidden" value="@Model.Set.ID">
-                    </td>
+
+                <input id="ID" name="ID" type="hidden" value="@Model.Set.ID">
+                <input id="WedstrijdID" name="WedstrijdID" type="hidden" value="@Model.Set.Wedstrijd.ID" />
+            </td>
                 }
                 @if (Model.Set.Wedstrijd.Teamuit.ID == Model.Set.Winaar.ID)
                 {
@@ -50,6 +52,7 @@
                         </select>
 
                         <input id="ID" name="ID" type="hidden" value="@Model.Set.ID">
+                        <input id="WedstrijdID" name="WedstrijdID" type="hidden" value="@Model.Set.Wedstrijd.ID"/>
                     </td>
                 }
             </tr>

@@ -13,5 +13,7 @@ namespace YolleybalCompetitie.Models
         public int Scoreteamuit { get; set; }
         public int Winaar { get; set; }
         public int ID { get; set; }
+        public int WedstrijdID { get; set; }
+
     }
 }
