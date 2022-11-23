@@ -9,6 +9,7 @@ namespace Core
     {
         private readonly IWedstrijdColectionDal IwedstrijdColectionDal;
         readonly ISetDal isetDal;
+        readonly ISetCollectionDal collectionDal;
         public int ID { get; }
         public Team Teamthuis { get; }
         public Team Teamuit { get; }
@@ -49,6 +50,10 @@ namespace Core
         {
             isetDal = setDal;
         }
+        public Wedstrijd(ISetCollectionDal setDal)
+        {
+            collectionDal = setDal;
+        }
 
         public Wedstrijd(WedstrijdDTO wedstrijdDTO)
         {
@@ -63,7 +68,7 @@ namespace Core
         public List<Set> GetSetsByWedstrijd(int ID)
         {
             List<Set> sets = new List<Set>();
-            List<SetDTO> setDTOs = isetDal.GetSetByWedstrijd(ID);
+            List<SetDTO> setDTOs = collectionDal.GetSetByWedstrijd(ID);
             foreach (SetDTO setDTO in setDTOs)
             {
                 sets.Add(new Set(setDTO));
@@ -73,7 +78,7 @@ namespace Core
         public List<Set> GetSetByID(int ID)
         {
             List<Set> sets = new List<Set>();
-            List<SetDTO> setDTOs = isetDal.GetSetByID(ID);
+            List<SetDTO> setDTOs = collectionDal.GetSetByID(ID);
             foreach (SetDTO setDTO in setDTOs)
             {
                 sets.Add(new Set(setDTO));

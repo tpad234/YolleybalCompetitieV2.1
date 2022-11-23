@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DalMock
 {
-   public class MockSetDal : ISetDal
+   public class MockSetDal : ISetDal, ISetCollectionDal
     {
         public List<SetDTO> GetSetByWedstrijd(int wedstrijdID)
         {

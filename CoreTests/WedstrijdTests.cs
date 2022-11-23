@@ -13,7 +13,7 @@ namespace Core.Tests
         [TestMethod()]
         public void TryGetSetsByWedstrijdCheckByID()
         {
-            ISetDal isetDal = new MockSetDal();
+            ISetCollectionDal isetDal = new MockSetDal();
             Wedstrijd wedstrijd = new Wedstrijd(isetDal);
 
             List<Set> sets = wedstrijd.GetSetsByWedstrijd(1);
@@ -26,7 +26,7 @@ namespace Core.Tests
         [TestMethod()]
         public void TryGetSetsByWedstrijdCheckByNumber()
         {
-            ISetDal isetDal = new MockSetDal();
+            ISetCollectionDal isetDal = new MockSetDal();
             Wedstrijd wedstrijd = new Wedstrijd(isetDal);
 
             List<Set> sets = wedstrijd.GetSetsByWedstrijd(1);

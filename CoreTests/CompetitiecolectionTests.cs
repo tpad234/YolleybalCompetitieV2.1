@@ -14,20 +14,11 @@ namespace Core.Tests
         [TestMethod()]
         public void CompetitieDTOToCompetitie()
         {
-            List<CompetitieDTO> competitieDTOs = new List<CompetitieDTO>();
+           
             CompetitieDTO competitieDTO = new CompetitieDTO("test1");
-            competitieDTOs.Add(competitieDTO);
-            List<Competitie> competitiesbasic = new List<Competitie>
-            {
-                new Competitie("test1")
-            };
-            List<Competitie> competities = new List<Competitie>
-            {
-                new Competitie(competitieDTO)
-            };
+           Competitie competities = new Competitie(competitieDTO);
 
-
-            Assert.IsTrue(competitiesbasic[0].Naam == competities[0].Naam);
+            Assert.IsTrue(competitieDTO.Naam == competities.Naam);
         }
 
 

@@ -24,7 +24,7 @@ namespace Core.Tests
         }
 
         [TestMethod()]
-        public void TryUpdateSethighScore()
+        public void TryUpdateSethighScoreSucces()
         {
             ISetDal isetDal = new MockSetDal();
             Set set = new Set(isetDal);
@@ -37,7 +37,7 @@ namespace Core.Tests
         }
 
         [TestMethod()]
-        public void TryUpdateSetToLowScore()
+        public void TryUpdateSetToLowScore0rows()
         {
             ISetDal isetDal = new MockSetDal();
             Set set = new Set(isetDal);

@@ -17,31 +17,13 @@ namespace Core
 
         private bool ScoreNotToHigh(int ScoreTeamThuis, int ScoreTeamUit)
         {
-            if ((ScoreTeamThuis > 25 && ScoreTeamUit >= 25) ||
-                 (ScoreTeamUit > 25 && ScoreTeamThuis >= 25))
-            {
-                return true;
-
-            }
-            else
-            {
-
-                return false;
-            }
+            return ((ScoreTeamThuis > 25 && ScoreTeamUit >= 25) ||
+                 (ScoreTeamUit > 25 && ScoreTeamThuis >= 25));
         }
         private bool ScoreToLow(int ScoreTeamThuis, int ScoreTeamUit)
         {
-            if((ScoreTeamThuis == 25 && ScoreTeamUit < 25) ||
-                (ScoreTeamUit == 25 && ScoreTeamThuis < 25))
-            {
-                return true;
-
-            }
-            else
-            {
-
-                return false;
-            }
+            return ((ScoreTeamThuis == 25 && ScoreTeamUit < 25) ||
+                (ScoreTeamUit == 25 && ScoreTeamThuis < 25));
     }
 
         public int UpdateSet(int ScoreTeamThuis, int ScoreTeamUit, int WinnaarID, int SetID)

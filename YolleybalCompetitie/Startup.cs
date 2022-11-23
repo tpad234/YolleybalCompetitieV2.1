@@ -34,6 +34,8 @@ namespace YolleybalCompetitie
             services.AddSingleton<ICompetitiecollectieDal, CompetitieDal>();
             services.AddSingleton<IGebruikerDal, GebruikerDal>();
             services.AddSingleton<ISetDal, SetDal>();
+            services.AddSingleton<ISetCollectionDal, SetDal>();
+
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>

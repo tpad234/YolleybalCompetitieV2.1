@@ -15,14 +15,16 @@ namespace YolleybalCompetitie.Controllers
     public class SetController : Controller
     {
         private readonly ISetDal iSetDal;
+        private readonly ISetCollectionDal collectionDal;
 
-        public SetController(ISetDal isetDal)
+        public SetController(ISetDal isetDal , ISetCollectionDal icolsetDal)
         {
             iSetDal = isetDal;
+            collectionDal = icolsetDal;
         }
         public IActionResult Index(int WedstrijdID)
         {
-            Wedstrijd wedstrijd = new Wedstrijd(iSetDal);
+            Wedstrijd wedstrijd = new Wedstrijd(collectionDal);
             List<Set> Sets = wedstrijd.GetSetsByWedstrijd(WedstrijdID);
 
             SetsViewModel setsViewModel = new SetsViewModel()
@@ -35,7 +37,7 @@ namespace YolleybalCompetitie.Controllers
         public IActionResult DetailsSet(int SetID)
         {
             SetViewModel setViewModel = new SetViewModel();
-            Wedstrijd wedstrijd = new Wedstrijd(iSetDal);
+            Wedstrijd wedstrijd = new Wedstrijd(collectionDal);
             List<Set> Sets = wedstrijd.GetSetByID(SetID);
             if (Sets.Count == 1)
             {

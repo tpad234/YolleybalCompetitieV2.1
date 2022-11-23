@@ -7,9 +7,7 @@ namespace Core
 {
    public interface ISetDal
     {
-        List<SetDTO> GetSetByWedstrijd(int ID);
         int UpdateSet(int ScoreTeamThuis, int ScoreTeamUit, int Winnaar, int ID);
-        public List<SetDTO> GetSetByID(int ID);
 
    }
 }

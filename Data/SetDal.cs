@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Data
 {
-    public class SetDal : ISetDal
+    public class SetDal : ISetDal, ISetCollectionDal
     {
         public List<SetDTO> GetSetByWedstrijd(int WedstrijdID)
         {

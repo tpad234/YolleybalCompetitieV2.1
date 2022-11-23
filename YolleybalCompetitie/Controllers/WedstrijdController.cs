@@ -14,11 +14,11 @@ namespace YolleybalCompetitie.Controllers
     public class WedstrijdController : Controller
     {
         private readonly IWedstrijdColectionDal IWedstrijdColectionDal;
-        private readonly ISetDal iSetDal;
-        public WedstrijdController(IWedstrijdColectionDal IwedstrijdColectionDal, ISetDal isetDal)
+        readonly ISetCollectionDal setCollectionDal;
+        public WedstrijdController(IWedstrijdColectionDal IwedstrijdColectionDal, ISetCollectionDal isetCollectionDal)
         {
             IWedstrijdColectionDal = IwedstrijdColectionDal;
-            iSetDal = isetDal;
+            setCollectionDal = isetCollectionDal;
         }
         public IActionResult Index()
         {
@@ -37,7 +37,7 @@ namespace YolleybalCompetitie.Controllers
         public IActionResult Details(int ID)
         {
 
-            Wedstrijd wedstrijd = new Wedstrijd(iSetDal);
+            Wedstrijd wedstrijd = new Wedstrijd(setCollectionDal);
             List<Set> Sets = wedstrijd.GetSetsByWedstrijd(ID);
             if (User.Identity.IsAuthenticated)
             {
