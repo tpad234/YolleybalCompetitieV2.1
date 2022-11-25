@@ -4,12 +4,79 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DalMock;
+using Core.DTO;
 
 namespace Core.Tests
 {
     [TestClass()]
     public class WedstrijdColectionTests
     {
+        //TODO
+        [TestMethod()]
+        public void TryWedstrijdDTOtoWedstrijdCheckByID()
+        {
+            TeamDTO thuisteam = new TeamDTO("test1");
+            TeamDTO uitteam = new TeamDTO("test2");
+
+
+            CompetitieDTO competitie = new CompetitieDTO("test");
+            WedstrijdDTO wedstrijdDTO = new WedstrijdDTO(1, thuisteam, uitteam, "eindhoven", competitie);
+            Wedstrijd wedstrijd = new Wedstrijd(wedstrijdDTO);
+
+            Assert.IsTrue(wedstrijdDTO.ID == wedstrijd.ID);
+        }
+        [TestMethod()]
+        public void TryWedstrijdDTOtoWedstrijdCheckByThuisteam()
+        {
+            TeamDTO thuisteam = new TeamDTO("test1");
+            TeamDTO uitteam = new TeamDTO("test2");
+
+
+            CompetitieDTO competitie = new CompetitieDTO("test");
+            WedstrijdDTO wedstrijdDTO = new WedstrijdDTO(1, thuisteam, uitteam, "eindhoven", competitie);
+            Wedstrijd wedstrijd = new Wedstrijd(wedstrijdDTO);
+
+            Assert.IsTrue(wedstrijdDTO.Teamthuis.ID == wedstrijd.Teamthuis.ID);
+        }
+        [TestMethod()]
+        public void TryWedstrijdDTOtoWedstrijdCheckByUitteam()
+        {
+            TeamDTO thuisteam = new TeamDTO("test1");
+            TeamDTO uitteam = new TeamDTO("test2");
+
+
+            CompetitieDTO competitie = new CompetitieDTO("test");
+            WedstrijdDTO wedstrijdDTO = new WedstrijdDTO(1, thuisteam, uitteam, "eindhoven", competitie);
+            Wedstrijd wedstrijd = new Wedstrijd(wedstrijdDTO);
+
+            Assert.IsTrue(wedstrijdDTO.Teamuit.ID == wedstrijd.Teamuit.ID);
+        }
+        [TestMethod()]
+        public void TryWedstrijdDTOtoWedstrijdCheckByLocatie()
+        {
+            TeamDTO thuisteam = new TeamDTO("test1");
+            TeamDTO uitteam = new TeamDTO("test2");
+
+
+            CompetitieDTO competitie = new CompetitieDTO("test");
+            WedstrijdDTO wedstrijdDTO = new WedstrijdDTO(1, thuisteam, uitteam, "eindhoven", competitie);
+            Wedstrijd wedstrijd = new Wedstrijd(wedstrijdDTO);
+
+            Assert.IsTrue(wedstrijdDTO.Locatie == wedstrijd.Locatie);
+        }
+        [TestMethod()]
+        public void TryWedstrijdDTOtoWedstrijdCheckByCompetitie()
+        {
+            TeamDTO thuisteam = new TeamDTO("test1");
+            TeamDTO uitteam = new TeamDTO("test2");
+
+
+            CompetitieDTO competitie = new CompetitieDTO("test");
+            WedstrijdDTO wedstrijdDTO = new WedstrijdDTO(1, thuisteam, uitteam, "eindhoven", competitie);
+            Wedstrijd wedstrijd = new Wedstrijd(wedstrijdDTO);
+
+            Assert.IsTrue(wedstrijdDTO.Competitie.Naam == wedstrijd.Competitie.Naam);
+        }
         [TestMethod()]
         public void TryGetWedstrijdenCheckByNumber()
         {
