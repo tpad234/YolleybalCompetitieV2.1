@@ -24,7 +24,7 @@ namespace Core
         {
             return ((ScoreTeamThuis == 25 && ScoreTeamUit < 25) ||
                 (ScoreTeamUit == 25 && ScoreTeamThuis < 25));
-    }
+        }
 
         public int UpdateSet(int ScoreTeamThuis, int ScoreTeamUit, int WinnaarID, int SetID)
         {
